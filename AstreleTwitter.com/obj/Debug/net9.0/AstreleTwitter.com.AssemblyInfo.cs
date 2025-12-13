@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AstreleTwitter.com")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fdc958c4098a9f790576c9f4ba8f9823289d34ce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6d6d6ad3500b4f51da33d849aee854cf501b897")]
 [assembly: System.Reflection.AssemblyProductAttribute("AstreleTwitter.com")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AstreleTwitter.com")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
