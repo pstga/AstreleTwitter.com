@@ -225,6 +225,9 @@ namespace AstreleTwitter.com.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("MediaPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("OriginalPostId")
                         .HasColumnType("int");
 

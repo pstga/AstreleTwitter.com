@@ -1,0 +1,17 @@
+﻿@model AstreleTwitter.com.Models.Post
+@{
+    ViewData["Title"] = "Editează Postarea";
+}
+
+<div class="container mt-5" style="max-width: 600px;">
+    <h2>Editează Postarea</h2>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group mb-3">
+            <label class="form-label">Conținut:</label>
+            <textarea name="content" class="form-control" rows="5">@Model.Content</textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Salvează Modificările</button>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Anulează</a>
+    </form>
+</div>

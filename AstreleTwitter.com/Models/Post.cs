@@ -18,5 +18,6 @@ namespace AstreleTwitter.com.Models
         public int? OriginalPostId { get; set; }
         public virtual Post OriginalPost { get; set; }
         public virtual ICollection<Post> Reposts { get; set; }
+        public string? MediaPath { get; set; } 
     }
 }
