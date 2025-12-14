@@ -29,6 +29,15 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-warning fw-bold" asp-controller="Admin" asp-action="Users">
+                                    <i class="fa-solid fa-crown"></i> Admin Panel
+                                </a>
+                            </li>
+                        }
                     </ul>
 
                     <div class="d-flex align-items-center gap-3">

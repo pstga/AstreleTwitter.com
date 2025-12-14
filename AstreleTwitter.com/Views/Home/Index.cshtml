@@ -1,117 +1,147 @@
-﻿@using Microsoft.AspNetCore.Identity
-@using AstreleTwitter.com.Models
-@model List<Post>
-
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+﻿@model IEnumerable<AstreleTwitter.com.Models.Post>
 
 @{
-    ViewData["Title"] = "Feed";
-    var currentUser = SignInManager.IsSignedIn(User) ? await UserManager.GetUserAsync(User) : null;
-    var isAdmin = User.IsInRole("Admin");
+    ViewData["Title"] = "Fluxul Galactic";
+    bool esteLogat = User.Identity != null && User.Identity.IsAuthenticated;
+    bool isAdmin = esteLogat && User.IsInRole("Admin");
 }
 
-<div class="container mt-4" style="max-width: 700px;">
+<div class="row justify-content-center">
+    <div class="col-md-8">
 
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <div class="card mb-4 shadow-sm border-0">
-            <div class="card-body">
-                <form asp-controller="Posts" asp-action="Create" method="post" enctype="multipart/form-data">
-                    <div class="form-group mb-3">
-                        <label class="fw-bold text-primary mb-2">Salut, @currentUser?.FirstName!</label>
-                        <textarea name="content" class="form-control border-0 shadow-sm mb-2" rows="3" placeholder="Scrie ceva..." required></textarea>
-
-                        <label class="small text-muted">Adaugă Poză sau Video:</label>
-                        <input type="file" name="mediaFile" class="form-control form-control-sm" accept="image/*,video/*" />
-                    </div>
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-primary px-4 rounded-pill">Publică</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    }
-
-    @foreach (var post in Model)
-    {
-        <div class="card mb-4 shadow-sm border-0">
-            <div class="card-header border-0 d-flex justify-content-between align-items-center pt-3">
-                <div class="d-flex align-items-center">
-                    <div class="rounded-circle bg-dark text-white d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px; font-weight: bold;">
-                        @(post.User?.FirstName?.Substring(0, 1) ?? "?")
-                    </div>
-                    <div>
-                        <span class="fw-bold text-dark">@post.User?.FirstName @post.User?.LastName</span>
-                        <br />
-                        <small class="text-muted" style="font-size: 0.8rem;">@post.Date.ToString("dd MMM HH:mm")</small>
-                    </div>
+        @if (esteLogat)
+        {
+            <div class="card mb-5 shadow-lg border-0">
+                <div class="card-body p-4">
+                    <form asp-controller="Posts" asp-action="Create" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label class="form-label h5 text-white">Ce transmiți în eter, @User.Identity.Name?</label>
+                            <textarea name="content" class="form-control" rows="3" placeholder="Scrie un mesaj..." required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <input type="file" name="mediaFile" class="form-control form-control-sm" accept="image/*" />
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Lansează Postarea 🚀</button>
+                        </div>
+                    </form>
                 </div>
-
-                @if (currentUser != null && (isAdmin || post.UserId == currentUser.Id))
-                {
-                    <div class="d-flex gap-2">
-                        <a asp-controller="Posts" asp-action="Edit" asp-route-id="@post.Id" class="btn btn-sm btn-outline-warning">✎</a>
-
-                        <form asp-controller="Posts" asp-action="Delete" asp-route-id="@post.Id" method="post" onsubmit="return confirm('Ștergi postarea?');">
-                            <button type="submit" class="btn btn-sm btn-outline-danger">🗑</button>
-                        </form>
-                    </div>
-                }
             </div>
+        }
+        else
+        {
+            <div class="alert alert-dark text-center shadow-lg border-0 mb-5">
+                <h4>Bine ai venit în Astrele Twitter! 🪐</h4>
+                <p>Trebuie să te <a asp-area="Identity" asp-page="/Account/Login">autentifici</a> pentru a posta.</p>
+            </div>
+        }
 
-            <div class="card-body">
-                <p class="card-text fs-5">@post.Content</p>
+        <h3 class="text-white mb-4 border-bottom pb-2">Ultimele Transmisii</h3>
 
-                @if (!string.IsNullOrEmpty(post.MediaPath))
-                {
-                    <div class="mt-3 text-center">
-                        @if (post.MediaPath.EndsWith(".mp4") || post.MediaPath.EndsWith(".webm"))
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model.OrderByDescending(p => p.Date))
+            {
+                bool isOwner = esteLogat && item.User != null && User.Identity.Name == item.User.UserName;
+                bool hasRights = isOwner || isAdmin;
+
+                <div class="card mb-4 shadow-sm border-0 post-card">
+
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-user-astronaut fa-2x text-info"></i>
+                            <div>
+                                <strong class="text-white">@(item.User?.FirstName ?? "Necunoscut") @(item.User?.LastName ?? "")</strong>
+                                <br />
+                                <small class="text-muted" style="font-size: 0.8rem;">@item.Date.ToString("g")</small>
+                            </div>
+                        </div>
+
+                        @if (hasRights)
                         {
-                            <video controls class="img-fluid rounded" style="max-height: 400px;">
-                                <source src="@post.MediaPath" type="video/mp4">
-                                Browserul tău nu suportă video.
-                            </video>
-                        }
-                        else
-                        {
-                            <img src="@post.MediaPath" class="img-fluid rounded" style="max-height: 400px;" alt="Post image" />
+                            <div>
+                                <a asp-controller="Posts" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info me-1" title="Editează Textul">
+                                    <i class="fa-solid fa-pen"></i>
+                                </a>
+
+                                <form asp-controller="Posts" asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('ADMIN/OWNER: Sigur ștergi TOATĂ postarea?');" title="Șterge Postarea Complet">
+                                        <i class="fa-solid fa-trash"></i> Șterge Tot
+                                    </button>
+                                </form>
+                            </div>
                         }
                     </div>
-                }
-            </div>
 
-            <div class="card-footer border-0">
-                @if (post.Comments != null && post.Comments.Any())
-                {
-                    <div class="mb-3">
-                        @foreach (var comm in post.Comments)
+                    <div class="card-body">
+                        <p class="card-text fs-5 text-white">@item.Content</p>
+
+                        @if (!string.IsNullOrEmpty(item.MediaPath))
                         {
-                            <div class="d-flex justify-content-between align-items-start mb-2 border-bottom pb-1">
-                                <div>
-                                    <strong class="text-dark small">@comm.User?.FirstName:</strong>
-                                    <span class="text-muted small">@comm.Content</span>
-                                </div>
+                            <div class="mt-3 text-center position-relative d-inline-block">
+                                <img src="@item.MediaPath" class="img-fluid rounded shadow-sm" style="max-height: 500px;" />
 
-                                @if (currentUser != null && (isAdmin || comm.UserId == currentUser.Id))
+                                @if (hasRights)
                                 {
-                                    <a asp-controller="Posts" asp-action="EditComment" asp-route-id="@comm.Id"
-                                       class="text-secondary small ms-2" style="text-decoration:none;">(editează)</a>
+                                    <form asp-controller="Posts" asp-action="DeleteMedia" asp-route-id="@item.Id" method="post"
+                                          style="position: absolute; top: 10px; right: 10px;">
+
+                                        <button type="submit" class="btn btn-danger btn-sm shadow"
+                                                onclick="return confirm('Ștergi DOAR imaginea? Textul va rămâne.');"
+                                                title="Șterge doar imaginea">
+                                            <i class="fa-solid fa-image"></i> <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </form>
                                 }
                             </div>
                         }
                     </div>
-                }
 
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <form asp-controller="Posts" asp-action="AddComment" method="post" class="d-flex mt-2">
-                        <input type="hidden" name="postId" value="@post.Id" />
-                        <input type="text" name="content" class="form-control form-control-sm rounded-pill me-2" placeholder="Comentează..." required />
-                        <button type="submit" class="btn btn-sm btn-outline-secondary rounded-pill">Trimite</button>
-                    </form>
-                }
-            </div>
-        </div>
-    }
+                    <div class="card-footer">
+                        <h6 class="mb-3 text-white"><i class="fa-regular fa-comments"></i> Comentarii</h6>
+
+                        @if (item.Comments != null && item.Comments.Any())
+                        {
+                            <ul class="list-unstyled mb-3">
+                                @foreach (var comm in item.Comments)
+                                {
+                                    bool isCommOwner = esteLogat && comm.User != null && User.Identity.Name == comm.User.UserName;
+
+                                    <li class="mb-2 p-2 rounded d-flex justify-content-between align-items-start" style="background: rgba(255,255,255,0.05);">
+                                        <div>
+                                            <strong class="text-info">@(comm.User?.FirstName ?? "Anonim"):</strong>
+                                            <span class="text-white">@comm.Content</span>
+                                        </div>
+
+                                        @if (isCommOwner || isAdmin)
+                                        {
+                                            <div class="ms-2 d-flex gap-1">
+                                                <a asp-controller="Posts" asp-action="EditComment" asp-route-id="@comm.Id" class="text-warning small" title="Editează">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </a>
+                                                <form asp-controller="Posts" asp-action="DeleteComment" asp-route-id="@comm.Id" method="post" class="d-inline">
+                                                    <button type="submit" class="btn btn-link text-danger p-0 small" onclick="return confirm('Ștergi comentariul?');">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        }
+
+                        @if (esteLogat)
+                        {
+                            <form asp-controller="Posts" asp-action="AddComment" method="post" class="d-flex gap-2">
+                                <input type="hidden" name="postId" value="@item.Id" />
+                                <input type="text" name="content" class="form-control form-control-sm" placeholder="Scrie un comentariu..." required />
+                                <button type="submit" class="btn btn-sm btn-light">Trimite</button>
+                            </form>
+                        }
+                    </div>
+                </div>
+            }
+        }
+    </div>
 </div>

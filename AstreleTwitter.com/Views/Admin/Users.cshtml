@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@model IEnumerable<ApplicationUser>
+
+@{
+    ViewData["Title"] = "Panou Administrare";
+}
+
+<div class="container mt-5">
+    <h2 class="text-white mb-4">Panou Control Utilizatori</h2>
+
+    <div class="card shadow-lg border-0" style="background: rgba(30, 30, 30, 0.8);">
+        <div class="card-body">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Nume</th>
+                        <th>Status</th>
+                        <th>Acțiuni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        bool isAdmin = await UserManager.IsInRoleAsync(user, "Admin");
+
+                        <tr>
+                            <td>@user.Email</td>
+                            <td>@user.FirstName @user.LastName</td>
+                            <td>
+                                @if (isAdmin)
+                                {
+                                    <span class="badge bg-warning text-dark">ADMIN</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">User</span>
+                                }
+                            </td>
+                            <td>
+                                @if (!isAdmin)
+                                {
+                                    <form asp-action="MakeAdmin" method="post" style="display:inline;">
+                                        <input type="hidden" name="userId" value="@user.Id" />
+                                        <button type="submit" class="btn btn-sm btn-success">Promovează Admin</button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    @if (user.Email != "admin@test.com")
+                                    {
+                                        <form asp-action="RevokeAdmin" method="post" style="display:inline;">
+                                            <input type="hidden" name="userId" value="@user.Id" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Retrogradează</button>
+                                        </form>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

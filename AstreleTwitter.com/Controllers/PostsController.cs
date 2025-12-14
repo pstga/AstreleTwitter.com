@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Hosting; 
-using Microsoft.AspNetCore.Http;   
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using AstreleTwitter.com.Data;
 using AstreleTwitter.com.Models;
@@ -25,19 +25,16 @@ namespace AstreleTwitter.com.Controllers
             _userManager = userManager;
             _env = env;
         }
+
         [HttpPost]
         [Authorize]
-        [RequestSizeLimit(100 * 1024 * 1024)] 
+        [RequestSizeLimit(100 * 1024 * 1024)]
         public async Task<IActionResult> Create(string content, IFormFile? mediaFile)
         {
             try
             {
                 var user = await _userManager.GetUserAsync(User);
-                if (user == null)
-                {
-                    Console.WriteLine("!!! EROARE: Utilizatorul nu a fost găsit. Poate a expirat sesiunea.");
-                    return RedirectToAction("Index", "Home");
-                }
+                if (user == null) return RedirectToAction("Index", "Home");
 
                 if (!string.IsNullOrWhiteSpace(content))
                 {
@@ -53,10 +50,7 @@ namespace AstreleTwitter.com.Controllers
                         string rootPath = _env.WebRootPath ?? Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
                         var uploadDir = Path.Combine(rootPath, "uploads");
 
-                        if (!Directory.Exists(uploadDir))
-                        {
-                            Directory.CreateDirectory(uploadDir);
-                        }
+                        if (!Directory.Exists(uploadDir)) Directory.CreateDirectory(uploadDir);
 
                         var fileName = Guid.NewGuid().ToString() + Path.GetExtension(mediaFile.FileName);
                         var filePath = Path.Combine(uploadDir, fileName);
@@ -72,20 +66,15 @@ namespace AstreleTwitter.com.Controllers
                     _context.Posts.Add(post);
                     await _context.SaveChangesAsync();
                 }
-
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("--------------------------------------------------");
-                Console.WriteLine("EROARE FATALA LA CREARE POSTARE:");
-                Console.WriteLine(ex.Message);
-                if (ex.InnerException != null) Console.WriteLine("DETALII: " + ex.InnerException.Message);
-                Console.WriteLine("--------------------------------------------------");
-
+                Console.WriteLine("EROARE: " + ex.Message);
                 return RedirectToAction("Index", "Home");
             }
         }
+
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> Edit(int id)
@@ -112,6 +101,60 @@ namespace AstreleTwitter.com.Controllers
                 if (User.IsInRole("Admin") || post.UserId == user.Id)
                 {
                     post.Content = content;
+                    await _context.SaveChangesAsync();
+                }
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var post = await _context.Posts.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
+
+            if (post != null && user != null && (User.IsInRole("Admin") || post.UserId == user.Id))
+            {
+                // Stergem si fisierul fizic daca exista
+                if (!string.IsNullOrEmpty(post.MediaPath))
+                {
+                    var filePath = Path.Combine(_env.WebRootPath, post.MediaPath.TrimStart('/'));
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        System.IO.File.Delete(filePath);
+                    }
+                }
+
+                _context.Posts.Remove(post);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> DeleteMedia(int id)
+        {
+            var post = await _context.Posts.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
+
+            if (post != null && user != null)
+            {
+                if (post.UserId == user.Id || User.IsInRole("Admin"))
+                {
+                    if (!string.IsNullOrEmpty(post.MediaPath))
+                    {
+                        string relativePath = post.MediaPath.TrimStart('/').TrimStart('\\');
+                        var filePath = Path.Combine(_env.WebRootPath, relativePath);
+
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            System.IO.File.Delete(filePath);
+                        }
+                    }
+
+                    post.MediaPath = null;
                     await _context.SaveChangesAsync();
                 }
             }
@@ -179,17 +222,22 @@ namespace AstreleTwitter.com.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        // === 9. (NOU) STERGERE COMENTARIU ===
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteComment(int id)
         {
-            var post = await _context.Posts.FindAsync(id);
+            var comm = await _context.Comments.FindAsync(id);
             var user = await _userManager.GetUserAsync(User);
 
-            if (post != null && user != null && (User.IsInRole("Admin") || post.UserId == user.Id))
+            if (comm != null && user != null)
             {
-                _context.Posts.Remove(post);
-                await _context.SaveChangesAsync();
+                // Adminul sau Proprietarul COMENTARIULUI pot sterge
+                if (comm.UserId == user.Id || User.IsInRole("Admin"))
+                {
+                    _context.Comments.Remove(comm);
+                    await _context.SaveChangesAsync();
+                }
             }
             return RedirectToAction("Index", "Home");
         }
