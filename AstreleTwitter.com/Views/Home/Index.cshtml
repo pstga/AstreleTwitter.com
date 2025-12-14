@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<AstreleTwitter.com.Models.Post>
 
 @{
-    ViewData["Title"] = "Fluxul Galactic";
+    ViewData["Title"] = "Fluxul Galactic :)";
     bool esteLogat = User.Identity != null && User.Identity.IsAuthenticated;
     bool isAdmin = esteLogat && User.IsInRole("Admin");
 }
+
 
 <div class="row justify-content-center">
     <div class="col-md-8">
@@ -15,7 +16,7 @@
                 <div class="card-body p-4">
                     <form asp-controller="Posts" asp-action="Create" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label class="form-label h5 text-white">Ce transmiți în eter, @User.Identity.Name?</label>
+                            <label class="form-label h5 text-white">Ce transmiti astazi, @User.Identity.Name?</label>
                             <textarea name="content" class="form-control" rows="3" placeholder="Scrie un mesaj..." required></textarea>
                         </div>
                         <div class="mb-3">
