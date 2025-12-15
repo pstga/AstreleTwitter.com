@@ -116,7 +116,7 @@ namespace AstreleTwitter.com.Controllers
 
             if (post != null && user != null && (User.IsInRole("Admin") || post.UserId == user.Id))
             {
-                // Stergem si fisierul fizic daca exista
+                // stergem si fisierul fizic daca exista
                 if (!string.IsNullOrEmpty(post.MediaPath))
                 {
                     var filePath = Path.Combine(_env.WebRootPath, post.MediaPath.TrimStart('/'));
@@ -222,7 +222,6 @@ namespace AstreleTwitter.com.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // === 9. (NOU) STERGERE COMENTARIU ===
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> DeleteComment(int id)
@@ -232,7 +231,6 @@ namespace AstreleTwitter.com.Controllers
 
             if (comm != null && user != null)
             {
-                // Adminul sau Proprietarul COMENTARIULUI pot sterge
                 if (comm.UserId == user.Id || User.IsInRole("Admin"))
                 {
                     _context.Comments.Remove(comm);

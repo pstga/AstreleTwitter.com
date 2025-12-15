@@ -11,7 +11,6 @@ namespace AstreleTwitter.com.Data
         {
         }
 
-        // --- DEFINIREA TABELELOR ---
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Like> Likes { get; set; }
@@ -19,13 +18,10 @@ namespace AstreleTwitter.com.Data
         public DbSet<UserGroup> UserGroups { get; set; }
         public DbSet<Following> Followings { get; set; }
 
-        // --- CONFIGURAREA RELAȚIILOR ---
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            // IMPORTANT: Păstrează configurările de Identity (Login/Register)
             base.OnModelCreating(builder);
 
-            // 1. UserGroups (Cheie compusă)
             builder.Entity<UserGroup>()
                 .HasKey(ug => new { ug.UserId, ug.GroupId });
 
@@ -41,7 +37,6 @@ namespace AstreleTwitter.com.Data
                 .HasForeignKey(ug => ug.GroupId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // 2. Followings (Cheie compusă)
             builder.Entity<Following>()
                 .HasKey(f => new { f.FollowerId, f.FollowingId });
 
@@ -57,7 +52,6 @@ namespace AstreleTwitter.com.Data
                 .HasForeignKey(f => f.FollowingId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // 3. Comments & Likes (Evitare ștergere în cascadă)
             builder.Entity<Comment>()
                 .HasOne(c => c.User)
                 .WithMany(u => u.Comments)
@@ -70,7 +64,6 @@ namespace AstreleTwitter.com.Data
                 .HasForeignKey(l => l.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // 4. Reposts (Self-Referencing)
             builder.Entity<Post>()
                 .HasOne(p => p.OriginalPost)
                 .WithMany(p => p.Reposts)

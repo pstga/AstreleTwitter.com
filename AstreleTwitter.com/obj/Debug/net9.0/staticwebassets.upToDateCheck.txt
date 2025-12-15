@@ -61,6 +61,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\uploads\3e55d397-6c67-4925-b7aa-2c38f5d08181.png
 wwwroot\uploads\3facc7b1-951f-42db-bedd-289e409c6720.png
 wwwroot\uploads\6613e4f3-7c96-43f3-95d8-7dec9b8c2347.png
 wwwroot\uploads\b8b802bc-05f2-42c3-98d8-4e48b9736b47.png
