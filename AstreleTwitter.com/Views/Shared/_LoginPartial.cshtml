@@ -1,28 +1,40 @@
-@using Microsoft.AspNetCore.Identity
+﻿@using Microsoft.AspNetCore.Identity
 @using AstreleTwitter.com.Models
-
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
+        var currentUser = await UserManager.GetUserAsync(User);
+
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Salut, @User.Identity?.Name!</a>
+            <a class="nav-link fw-bold" asp-controller="Profiles" asp-action="Show" asp-route-id="@currentUser?.Id" title="Vezi profilul tău">
+                <i class="fa-solid fa-user-astronaut"></i> Profilul tău
+            </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Profiles" asp-action="Edit" title="Editează profilul">
+                <i class="fa-solid fa-pen-to-square"></i> Editează
+            </a>
+        </li>
+
         <li class="nav-item">
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                <button type="submit" class="nav-link btn btn-link" style="text-decoration: none;">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </button>
             </form>
         </li>
     }
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">�nregistrare</a>
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Logare</a>
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
     }
 </ul>

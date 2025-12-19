@@ -1,32 +1,55 @@
-using System.Diagnostics;
 using AstreleTwitter.com.Models;
+using AstreleTwitter.com.Data;
 using Microsoft.AspNetCore.Mvc;
-using AstreleTwitter.com.Data; 
+using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace AstreleTwitter.com.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ApplicationDbContext _context; 
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string feedType = "global")
         {
-            var posts = await _context.Posts
-                .Include(p => p.User)       
-                .Include(p => p.Comments)  
-                .ThenInclude(c => c.User)  
-                .OrderByDescending(p => p.Date) 
-                .ToListAsync();
+            var currentUser = _userManager.GetUserAsync(User).Result;
+            ViewBag.CurrentUser = currentUser;
 
-            return View(posts);
+            var myFollowingIds = new List<string>();
+            if (currentUser != null)
+            {
+                myFollowingIds = _context.Followings
+                    .Where(f => f.FollowerId == currentUser.Id && f.Status == "Accepted")
+                    .Select(f => f.FollowingId)
+                    .ToList();
+            }
+            ViewBag.MyFollowingIds = myFollowingIds;
+
+            var postsQuery = _context.Posts
+                            .Include(p => p.User)
+                            .Include(p => p.Comments).ThenInclude(c => c.User)
+                            .Include(p => p.Likes).ThenInclude(l => l.User)
+                            .OrderByDescending(p => p.Date)
+                            .AsQueryable();
+
+            if (currentUser != null && feedType == "following")
+            {
+                var ids = new List<string>(myFollowingIds) { currentUser.Id };
+                postsQuery = postsQuery.Where(p => ids.Contains(p.UserId));
+            }
+
+            ViewBag.FeedType = feedType;
+            return View(postsQuery.ToList());
         }
 
         public IActionResult Privacy()

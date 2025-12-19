@@ -1,0 +1,80 @@
+﻿@model AstreleTwitter.com.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Admin Editare User";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0"><i class="fa-solid fa-user-shield"></i> Modificare Administrator</h4>
+                    <small class="text-white">Modifici profilul utilizatorului: <strong>@Model.FirstName @Model.LastName</strong></small>
+                </div>
+
+                <div class="card-body p-5">
+                    <form asp-action="AdminEdit" method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Prenume</label>
+                                <input asp-for="FirstName" class="form-control" />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Nume de Familie</label>
+                                <input asp-for="LastName" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Bio</label>
+                            <textarea asp-for="Bio" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Poză de Profil (Suprascriere)</label>
+                            <input type="file" name="profileImage" class="form-control" accept="image/*" />
+                            @if (!string.IsNullOrEmpty(Model.ProfilePicture))
+                            {
+                                <div class="mt-2">
+                                    <small class="text-muted">Poză curentă:</small>
+                                    <img src="@Model.ProfilePicture" class="rounded-circle ms-2" style="width: 40px; height: 40px; object-fit: cover;" />
+                                </div>
+                            }
+                        </div>
+
+                        <hr class="my-4" />
+
+                        <h5 class="text-danger mb-3 fw-bold">⚠️ Zonă de Risc (Date Sensibile)</h5>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-danger">Email (Login)</label>
+                            <input asp-for="Email" class="form-control border-danger" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-danger">Resetare Parolă</label>
+                            <input type="text" name="newPassword" class="form-control border-danger" placeholder="Lasă gol dacă nu vrei să schimbi parola" />
+                            <div class="form-text text-danger opacity-75">Dacă scrii aici, parola veche va fi ștearsă!</div>
+                        </div>
+
+                        <div class="form-check form-switch mb-4 p-3 border border-danger rounded">
+                            <input class="form-check-input ms-0 me-2" type="checkbox" asp-for="AccountPrivacy" style="float: none;" />
+                            <label class="form-check-label fw-bold" asp-for="AccountPrivacy">Cont Privat</label>
+                            <div class="mt-1">
+                                <small class="text-muted">Dacă debifezi (Public), cererile în așteptare se vor accepta automat.</small>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger btn-lg">Salvează Forțat</button>
+                            <a asp-action="Show" asp-route-id="@Model.Id" class="btn btn-outline-secondary">Anulează</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

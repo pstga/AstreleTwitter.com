@@ -172,6 +172,10 @@ namespace AstreleTwitter.com.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("GroupImage")
                         .HasColumnType("nvarchar(max)");
 
@@ -186,6 +190,95 @@ namespace AstreleTwitter.com.Migrations
                     b.ToTable("Groups");
                 });
 
+            modelBuilder.Entity("AstreleTwitter.com.Models.GroupComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("GroupMessageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupMessageId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("GroupComments");
+                });
+
+            modelBuilder.Entity("AstreleTwitter.com.Models.GroupLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("GroupMessageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupMessageId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("GroupLikes");
+                });
+
+            modelBuilder.Entity("AstreleTwitter.com.Models.GroupMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("GroupId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MediaPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("GroupMessages");
+                });
+
             modelBuilder.Entity("AstreleTwitter.com.Models.Like", b =>
                 {
                     b.Property<int>("Id")
@@ -193,6 +286,9 @@ namespace AstreleTwitter.com.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("LikeId")
+                        .HasColumnType("int");
 
                     b.Property<int>("PostId")
                         .HasColumnType("int");
@@ -202,6 +298,8 @@ namespace AstreleTwitter.com.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LikeId");
 
                     b.HasIndex("PostId");
 
@@ -445,8 +543,69 @@ namespace AstreleTwitter.com.Migrations
                     b.Navigation("Creator");
                 });
 
+            modelBuilder.Entity("AstreleTwitter.com.Models.GroupComment", b =>
+                {
+                    b.HasOne("AstreleTwitter.com.Models.GroupMessage", "GroupMessage")
+                        .WithMany("GroupComments")
+                        .HasForeignKey("GroupMessageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AstreleTwitter.com.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("GroupMessage");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("AstreleTwitter.com.Models.GroupLike", b =>
+                {
+                    b.HasOne("AstreleTwitter.com.Models.GroupMessage", "GroupMessage")
+                        .WithMany("GroupLikes")
+                        .HasForeignKey("GroupMessageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AstreleTwitter.com.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("GroupMessage");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("AstreleTwitter.com.Models.GroupMessage", b =>
+                {
+                    b.HasOne("AstreleTwitter.com.Models.Group", "Group")
+                        .WithMany("Messages")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("AstreleTwitter.com.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Group");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("AstreleTwitter.com.Models.Like", b =>
                 {
+                    b.HasOne("AstreleTwitter.com.Models.Like", null)
+                        .WithMany("Likes")
+                        .HasForeignKey("LikeId");
+
                     b.HasOne("AstreleTwitter.com.Models.Post", "Post")
                         .WithMany("Likes")
                         .HasForeignKey("PostId")
@@ -571,7 +730,21 @@ namespace AstreleTwitter.com.Migrations
 
             modelBuilder.Entity("AstreleTwitter.com.Models.Group", b =>
                 {
+                    b.Navigation("Messages");
+
                     b.Navigation("UserGroups");
+                });
+
+            modelBuilder.Entity("AstreleTwitter.com.Models.GroupMessage", b =>
+                {
+                    b.Navigation("GroupComments");
+
+                    b.Navigation("GroupLikes");
+                });
+
+            modelBuilder.Entity("AstreleTwitter.com.Models.Like", b =>
+                {
+                    b.Navigation("Likes");
                 });
 
             modelBuilder.Entity("AstreleTwitter.com.Models.Post", b =>

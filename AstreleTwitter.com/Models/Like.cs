@@ -9,5 +9,6 @@ namespace AstreleTwitter.com.Models
         public virtual ApplicationUser User { get; set; }
         public int PostId { get; set; }
         public virtual Post Post { get; set; }
+        public ICollection<Like> Likes { get; set; } = new List<Like>();
     }
 }

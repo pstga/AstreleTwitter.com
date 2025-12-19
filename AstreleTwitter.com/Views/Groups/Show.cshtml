@@ -1,0 +1,288 @@
+﻿@model AstreleTwitter.com.Models.Group
+
+@{
+    ViewData["Title"] = Model.Title;
+    var currentUser = ViewBag.CurrentUser as AstreleTwitter.com.Models.ApplicationUser;
+    string userStatus = ViewBag.UserStatus as string;
+
+    bool isAdmin = ViewBag.IsGlobalAdmin ?? false;
+    bool isCreator = ViewBag.IsCreator ?? false;
+    bool isMember = ViewBag.IsMember ?? false;
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0 mb-4 post-card">
+        <div class="card-body p-5 text-center position-relative">
+
+            @if (isCreator)
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-outline-info position-absolute top-0 end-0 m-3 rounded-pill px-3">
+                    <i class="fa-solid fa-pen-to-square"></i> Editează
+                </a>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.GroupImage))
+            {
+                <img src="@Model.GroupImage" class="rounded-circle mb-3 shadow" style="width: 120px; height: 120px; object-fit: cover;" />
+            }
+            else
+            {
+                <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center mx-auto mb-3 shadow" style="width: 120px; height: 120px;">
+                    <i class="fa-solid fa-users fa-3x text-white"></i>
+                </div>
+            }
+
+            <h2 class="fw-bold" style="color: var(--text-color);">@Model.Title</h2>
+            <p class="text-muted">
+                Creat de <strong>@Model.Creator.FirstName @Model.Creator.LastName</strong> •
+                @Model.UserGroups.Count(u => u.Status == "Accepted") Membri
+            </p>
+            <p class="lead mt-3" style="font-size: 1.1rem; color: var(--text-color);">@Model.Description</p>
+
+            <div class="mt-4">
+                @if (isCreator)
+                {
+                    <form asp-action="DeleteGroup" asp-route-id="@Model.Id" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger rounded-pill px-4" onclick="return confirm('ATENȚIE: Ștergi grupul și toate mesajele definitiv?');">
+                            <i class="fa-solid fa-trash"></i> Șterge Grupul
+                        </button>
+                    </form>
+                }
+                else if (userStatus == "Accepted")
+                {
+                    <form asp-action="Leave" asp-route-groupId="@Model.Id" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-outline-warning rounded-pill px-4">
+                            <i class="fa-solid fa-person-walking-arrow-right"></i> Părăsește Grupul
+                        </button>
+                    </form>
+                }
+                else if (userStatus == "Pending")
+                {
+                    <button class="btn btn-secondary disabled rounded-pill px-4"><i class="fa-solid fa-clock"></i> Cerere Trimisă</button>
+                }
+                else
+                {
+                    <form asp-action="Join" asp-route-groupId="@Model.Id" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-primary rounded-pill px-4">Alătură-te Grupului</button>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            @if (isCreator)
+            {
+                var pendingUsers = Model.UserGroups.Where(u => u.Status == "Pending").ToList();
+                if (pendingUsers.Any())
+                {
+                    <div class="card shadow-sm border-0 mb-4 post-card">
+                        <div class="card-header bg-warning text-dark fw-bold border-bottom-0">
+                            <i class="fa-solid fa-bell"></i> Cereri (@pendingUsers.Count)
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            @foreach (var req in pendingUsers)
+                            {
+                                <li class="list-group-item bg-transparent border-bottom d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold" style="color: var(--text-color);">@req.User.FirstName @req.User.LastName</span>
+                                    <div>
+                                        <form asp-action="AcceptMember" method="post" class="d-inline">
+                                            <input type="hidden" name="groupId" value="@Model.Id" />
+                                            <input type="hidden" name="userId" value="@req.UserId" />
+                                            <button type="submit" class="btn btn-sm btn-success"><i class="fa-solid fa-check"></i></button>
+                                        </form>
+                                        <form asp-action="RejectMember" method="post" class="d-inline">
+                                            <input type="hidden" name="groupId" value="@Model.Id" />
+                                            <input type="hidden" name="userId" value="@req.UserId" />
+                                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa-solid fa-xmark"></i></button>
+                                        </form>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            }
+
+            <div class="card shadow-sm border-0 post-card">
+                <div class="card-header fw-bold bg-transparent border-bottom" style="color: var(--text-color);">
+                    <i class="fa-solid fa-users"></i> Membri
+                </div>
+                <div class="card-body p-0">
+                    <ul class="list-group list-group-flush">
+                        @foreach (var member in Model.UserGroups.Where(u => u.Status == "Accepted").Take(20))
+                        {
+                            <li class="list-group-item bg-transparent border-bottom d-flex align-items-center gap-2">
+                                @if (!string.IsNullOrEmpty(member.User.ProfilePicture))
+                                {
+                                    <img src="@member.User.ProfilePicture" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;" />
+                                }
+                                else
+                                {
+                                    <div class="rounded-circle bg-secondary" style="width: 30px; height: 30px;"></div>
+                                }
+
+                                <a asp-controller="Profiles" asp-action="Show" asp-route-id="@member.UserId" class="member-link">
+                                    @member.User.FirstName @member.User.LastName
+                                </a>
+
+                                @if (member.UserId == Model.CreatorId)
+                                {
+                                    <span class="badge bg-info ms-auto">Creator</span>
+                                }
+                                else if (isCreator)
+                                {
+                                    <form asp-action="RejectMember" method="post" class="ms-auto">
+                                        <input type="hidden" name="groupId" value="@Model.Id" />
+                                        <input type="hidden" name="userId" value="@member.UserId" />
+                                        <button type="submit" class="btn btn-link text-danger p-0 small" onclick="return confirm('Elimini acest membru?');">
+                                            <i class="fa-solid fa-ban"></i>
+                                        </button>
+                                    </form>
+                                }
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            @if (isMember)
+            {
+                <div class="card shadow-sm border-0 mb-4 post-card">
+                    <div class="card-body">
+                        <form asp-action="AddMessage" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="groupId" value="@Model.Id" />
+                            <label class="form-label fw-bold" style="color: var(--text-color);">Postează în grup</label>
+
+                            <textarea name="content" class="form-control mb-2" rows="2" placeholder="Ce mai e nou?" required></textarea>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input type="file" name="mediaFile" class="form-control form-control-sm w-50" accept="image/*" />
+                                <button type="submit" class="btn btn-primary btn-sm px-4 rounded-pill">Trimite</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                @if (Model.Messages.Any())
+                {
+                    <div class="d-flex flex-column gap-3">
+                        @foreach (var msg in Model.Messages.OrderByDescending(m => m.Date))
+                        {
+                            bool isMsgOwner = currentUser != null && msg.UserId == currentUser.Id;
+                            bool likedByMe = currentUser != null && msg.GroupLikes.Any(l => l.UserId == currentUser.Id);
+
+                            <div class="card shadow-sm border-0 post-card">
+                                <div class="card-body pb-1">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div class="d-flex align-items-center gap-2 mb-2">
+                                            @if (!string.IsNullOrEmpty(msg.User?.ProfilePicture))
+                                            {
+                                                <img src="@msg.User.ProfilePicture" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;" />
+                                            }
+                                            else
+                                            {
+                                                <div class="rounded-circle bg-secondary" style="width: 40px; height: 40px;"></div>
+                                            }
+                                            <div>
+                                                <a asp-controller="Profiles" asp-action="Show" asp-route-id="@msg.UserId" class="member-link">
+                                                    @msg.User?.FirstName @msg.User?.LastName
+                                                </a>
+                                                <br />
+                                                <small class="text-muted">@msg.Date.ToString("g")</small>
+                                            </div>
+                                        </div>
+
+                                        @if (isMsgOwner || isCreator)
+                                        {
+                                            <div class="d-flex align-items-center gap-1">
+                                                <a asp-action="EditMessage" asp-route-id="@msg.Id" class="btn btn-link text-warning p-0 opacity-75 me-2" title="Editează">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </a>
+                                                <form asp-action="DeleteMessage" asp-route-messageId="@msg.Id" method="post">
+                                                    <button type="submit" class="btn btn-link text-danger p-0 opacity-50" title="Șterge">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <p class="card-text fs-6 mt-1" style="color: var(--text-color);">@msg.Content</p>
+
+                                    @if (!string.IsNullOrEmpty(msg.MediaPath))
+                                    {
+                                        <img src="@msg.MediaPath" class="img-fluid rounded mb-3 shadow-sm" style="max-height: 400px; width: 100%; object-fit: cover;" />
+                                    }
+                                </div>
+
+                                <div class="card-footer bg-transparent border-top-0 pt-0">
+                                    <div class="d-flex align-items-center gap-3 border-bottom pb-2 mb-2" style="border-color: rgba(128,128,128, 0.2) !important;">
+                                        <form asp-action="ToggleGroupLike" method="post">
+                                            <input type="hidden" name="messageId" value="@msg.Id" />
+                                            <button type="submit" class="btn btn-sm p-0 border-0" style="color: var(--text-color);">
+                                                <i class="@(likedByMe ? "fa-solid text-danger" : "fa-regular") fa-heart fa-lg"></i>
+                                                <span class="ms-1 fw-bold">@msg.GroupLikes.Count</span>
+                                            </button>
+                                        </form>
+                                        <div class="text-muted small">
+                                            <i class="fa-regular fa-comment"></i> @msg.GroupComments.Count comentarii
+                                        </div>
+                                    </div>
+
+                                    @if (msg.GroupComments.Any())
+                                    {
+                                        <ul class="list-unstyled mb-2 ps-2 border-start border-2 border-primary">
+                                            @foreach (var comm in msg.GroupComments.OrderBy(c => c.Date).TakeLast(5))
+                                            {
+                                                bool isCommOwner = currentUser != null && comm.UserId == currentUser.Id;
+
+                                                <li class="mb-2 small d-flex justify-content-between align-items-start hover-bg rounded p-1">
+                                                    <div>
+                                                        <strong class="text-info">@comm.User.FirstName:</strong>
+                                                        <span style="color: var(--text-color);">@comm.Content</span>
+                                                    </div>
+
+                                                    @if (isCommOwner || isCreator)
+                                                    {
+                                                        <div class="d-flex align-items-center gap-1 ms-2">
+                                                            <a asp-action="EditGroupComment" asp-route-id="@comm.Id" class="text-warning p-0 opacity-75" title="Editează">
+                                                                <i class="fa-solid fa-pen fa-xs"></i>
+                                                            </a>
+                                                            <form asp-action="DeleteGroupComment" asp-route-commentId="@comm.Id" method="post">
+                                                                <button type="submit" class="btn btn-link text-danger p-0 opacity-50 lh-1" style="font-size: 0.8rem;" onclick="return confirm('Ștergi?');">
+                                                                    <i class="fa-solid fa-xmark"></i>
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    }
+                                                </li>
+                                            }
+                                        </ul>
+                                    }
+
+                                    <form asp-action="AddGroupComment" method="post" class="d-flex gap-2">
+                                        <input type="hidden" name="messageId" value="@msg.Id" />
+                                        <input type="text" name="content" class="form-control form-control-sm rounded-pill" placeholder="Comentează..." required />
+                                        <button type="submit" class="btn btn-sm btn-outline-primary rounded-circle"><i class="fa-solid fa-paper-plane"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="text-center text-muted py-5">
+                        <i class="fa-regular fa-comment-dots fa-3x mb-3"></i>
+                        <p>Fii primul care postează ceva!</p>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

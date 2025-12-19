@@ -17,13 +17,16 @@ namespace AstreleTwitter.com.Data
         public DbSet<Group> Groups { get; set; }
         public DbSet<UserGroup> UserGroups { get; set; }
         public DbSet<Following> Followings { get; set; }
+        public DbSet<GroupMessage> GroupMessages { get; set; }
+        public DbSet<GroupLike> GroupLikes { get; set; }
+        public DbSet<GroupComment> GroupComments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
             builder.Entity<UserGroup>()
-                .HasKey(ug => new { ug.UserId, ug.GroupId });
+                    .HasKey(ug => new { ug.UserId, ug.GroupId });
 
             builder.Entity<UserGroup>()
                 .HasOne(ug => ug.User)
@@ -35,6 +38,36 @@ namespace AstreleTwitter.com.Data
                 .HasOne(ug => ug.Group)
                 .WithMany(g => g.UserGroups)
                 .HasForeignKey(ug => ug.GroupId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<GroupMessage>()
+                    .HasOne(m => m.Group)
+                    .WithMany(g => g.Messages)
+                    .HasForeignKey(m => m.GroupId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<GroupLike>()
+                    .HasOne(l => l.User)
+                    .WithMany()
+                    .HasForeignKey(l => l.UserId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<GroupLike>()
+        .HasOne(l => l.GroupMessage)
+        .WithMany(m => m.GroupLikes)
+        .HasForeignKey(l => l.GroupMessageId)
+        .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<GroupComment>()
+                    .HasOne(c => c.User)
+                    .WithMany()
+                    .HasForeignKey(c => c.UserId)
+                    .OnDelete(DeleteBehavior.Restrict); 
+
+            builder.Entity<GroupComment>()
+                .HasOne(c => c.GroupMessage)
+                .WithMany(m => m.GroupComments)
+                .HasForeignKey(c => c.GroupMessageId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Following>()
@@ -70,5 +103,6 @@ namespace AstreleTwitter.com.Data
                 .HasForeignKey(p => p.OriginalPostId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
+
     }
 }

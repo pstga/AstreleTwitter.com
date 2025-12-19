@@ -1,0 +1,50 @@
+﻿@model AstreleTwitter.com.Models.Group
+
+@{
+    ViewData["Title"] = "Creează Grup";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0" style="background-color: var(--card-bg); color: var(--text-color);">
+                <div class="card-header bg-transparent border-bottom-0 text-center pt-4">
+                    <h3 class="fw-bold">Creează o Comunitate Nouă</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label fw-bold">Denumire Grup</label>
+                            <input asp-for="Title" class="form-control" placeholder="Ex: Pasionații de Astronomie" />
+                            <span asp-validation-for="Title" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label fw-bold">Descriere</label>
+                            <textarea asp-for="Description" class="form-control" rows="3" placeholder="Despre ce este acest grup?"></textarea>
+                            <span asp-validation-for="Description" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Imagine Grup (Opțional)</label>
+                            <input type="file" name="groupImage" class="form-control" accept="image/*" />
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Creează Grupul</button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">Înapoi la listă</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

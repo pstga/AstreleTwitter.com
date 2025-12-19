@@ -1,12 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using AstreleTwitter.com.Data;
 using AstreleTwitter.com.Models;
@@ -26,14 +20,24 @@ namespace AstreleTwitter.com.Controllers
             _env = env;
         }
 
+        private IActionResult RedirectToReferer()
+        {
+            var referer = Request.Headers["Referer"].ToString();
+            if (string.IsNullOrEmpty(referer))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return Redirect(referer);
+        }
+
         [HttpPost]
         [Authorize]
         [RequestSizeLimit(100 * 1024 * 1024)]
-        public async Task<IActionResult> Create(string content, IFormFile? mediaFile)
+        public IActionResult Create(string content, IFormFile? mediaFile)
         {
             try
             {
-                var user = await _userManager.GetUserAsync(User);
+                var user = _userManager.GetUserAsync(User).Result;
                 if (user == null) return RedirectToAction("Index", "Home");
 
                 if (!string.IsNullOrWhiteSpace(content))
@@ -57,30 +61,48 @@ namespace AstreleTwitter.com.Controllers
 
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
-                            await mediaFile.CopyToAsync(stream);
+                            mediaFile.CopyTo(stream);
                         }
 
                         post.MediaPath = "/uploads/" + fileName;
                     }
 
                     _context.Posts.Add(post);
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
-                return RedirectToAction("Index", "Home");
+                return RedirectToReferer();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("EROARE: " + ex.Message);
-                return RedirectToAction("Index", "Home");
+                return RedirectToReferer();
             }
         }
 
         [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Show(int id)
         {
-            var post = await _context.Posts.FindAsync(id);
-            var user = await _userManager.GetUserAsync(User);
+            var post = await _context.Posts
+                                    .Include(p => p.User)
+                                    .Include(p => p.Comments).ThenInclude(c => c.User)
+                                    .Include(p => p.Likes).ThenInclude(l => l.User)
+                                    .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (post == null) return NotFound();
+
+            var currentUser = await _userManager.GetUserAsync(User);
+            ViewBag.CurrentUserId = _userManager.GetUserId(User);
+            ViewBag.IsAdmin = User.IsInRole("Admin");
+
+            return View(post);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Edit(int id)
+        {
+            var post = _context.Posts.Find(id);
+            var user = _userManager.GetUserAsync(User).Result;
 
             if (post == null || user == null || (post.UserId != user.Id && !User.IsInRole("Admin")))
             {
@@ -91,17 +113,17 @@ namespace AstreleTwitter.com.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Edit(int id, string content)
+        public IActionResult Edit(int id, string content)
         {
-            var post = await _context.Posts.FindAsync(id);
-            var user = await _userManager.GetUserAsync(User);
+            var post = _context.Posts.Find(id);
+            var user = _userManager.GetUserAsync(User).Result;
 
             if (post != null && user != null)
             {
                 if (User.IsInRole("Admin") || post.UserId == user.Id)
                 {
                     post.Content = content;
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
             }
             return RedirectToAction("Index", "Home");
@@ -109,14 +131,13 @@ namespace AstreleTwitter.com.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Delete(int id)
+        public IActionResult Delete(int id)
         {
-            var post = await _context.Posts.FindAsync(id);
-            var user = await _userManager.GetUserAsync(User);
+            var post = _context.Posts.Find(id);
+            var user = _userManager.GetUserAsync(User).Result;
 
             if (post != null && user != null && (User.IsInRole("Admin") || post.UserId == user.Id))
             {
-                // stergem si fisierul fizic daca exista
                 if (!string.IsNullOrEmpty(post.MediaPath))
                 {
                     var filePath = Path.Combine(_env.WebRootPath, post.MediaPath.TrimStart('/'));
@@ -127,17 +148,20 @@ namespace AstreleTwitter.com.Controllers
                 }
 
                 _context.Posts.Remove(post);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
             }
-            return RedirectToAction("Index", "Home");
+            var referer = Request.Headers["Referer"].ToString();
+            if (referer.Contains("Posts/Show")) return RedirectToAction("Index", "Home");
+
+            return RedirectToReferer();
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> DeleteMedia(int id)
+        public IActionResult DeleteMedia(int id)
         {
-            var post = await _context.Posts.FindAsync(id);
-            var user = await _userManager.GetUserAsync(User);
+            var post = _context.Posts.Find(id);
+            var user = _userManager.GetUserAsync(User).Result;
 
             if (post != null && user != null)
             {
@@ -153,24 +177,21 @@ namespace AstreleTwitter.com.Controllers
                             System.IO.File.Delete(filePath);
                         }
                     }
-
                     post.MediaPath = null;
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToReferer();
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> AddComment(int postId, string content)
+        public IActionResult AddComment(int postId, string content)
         {
             try
             {
-                var user = await _userManager.GetUserAsync(User);
-                if (user == null) return RedirectToAction("Index", "Home");
-
-                if (!string.IsNullOrWhiteSpace(content))
+                var user = _userManager.GetUserAsync(User).Result;
+                if (user != null && !string.IsNullOrWhiteSpace(content))
                 {
                     var comment = new Comment
                     {
@@ -180,22 +201,19 @@ namespace AstreleTwitter.com.Controllers
                         Date = DateTime.Now
                     };
                     _context.Comments.Add(comment);
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Eroare la comentariu: " + ex.Message);
-            }
-            return RedirectToAction("Index", "Home");
+            catch { }
+            return RedirectToReferer();
         }
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> EditComment(int id)
+        public IActionResult EditComment(int id)
         {
-            var comm = await _context.Comments.FindAsync(id);
-            var user = await _userManager.GetUserAsync(User);
+            var comm = _context.Comments.Find(id);
+            var user = _userManager.GetUserAsync(User).Result;
 
             if (comm == null || user == null || (comm.UserId != user.Id && !User.IsInRole("Admin")))
             {
@@ -206,17 +224,17 @@ namespace AstreleTwitter.com.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> EditComment(int id, string content)
+        public IActionResult EditComment(int id, string content)
         {
-            var comm = await _context.Comments.FindAsync(id);
-            var user = await _userManager.GetUserAsync(User);
+            var comm = _context.Comments.Find(id);
+            var user = _userManager.GetUserAsync(User).Result;
 
             if (comm != null && user != null)
             {
                 if (User.IsInRole("Admin") || comm.UserId == user.Id)
                 {
                     comm.Content = content;
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
             }
             return RedirectToAction("Index", "Home");
@@ -224,19 +242,51 @@ namespace AstreleTwitter.com.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> DeleteComment(int id)
+        public IActionResult DeleteComment(int id)
         {
-            var comm = await _context.Comments.FindAsync(id);
-            var user = await _userManager.GetUserAsync(User);
+            var comm = _context.Comments.Find(id);
+            var user = _userManager.GetUserAsync(User).Result;
 
             if (comm != null && user != null)
             {
                 if (comm.UserId == user.Id || User.IsInRole("Admin"))
                 {
                     _context.Comments.Remove(comm);
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
             }
+            return RedirectToReferer();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> ToggleLike(int postId, string returnUrl)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return Challenge();
+
+            var existingLike = _context.Likes
+                .FirstOrDefault(l => l.PostId == postId && l.UserId == user.Id);
+
+            if (existingLike != null)
+            {
+                _context.Likes.Remove(existingLike);
+            }
+            else
+            {
+                var like = new Like
+                {
+                    PostId = postId,
+                    UserId = user.Id
+                };
+                _context.Likes.Add(like);
+            }
+
+            await _context.SaveChangesAsync();
+
+            if (!string.IsNullOrEmpty(returnUrl))
+                return Redirect(returnUrl);
+
             return RedirectToAction("Index", "Home");
         }
     }
