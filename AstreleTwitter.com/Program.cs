@@ -20,6 +20,11 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+builder.Services.AddHttpClient<AstreleTwitter.com.Services.GeminiModerationService>();
+builder.Services.AddHttpClient<AstreleTwitter.com.Services.AstrologyService>();
+
+builder.Services.AddMemoryCache();
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())

@@ -1,0 +1,110 @@
+﻿@model AstreleTwitter.com.Models.AstrologyViewModel
+
+@{
+    ViewData["Title"] = "Astrologie";
+    // Folosim un fallback sigur daca cumva e null
+    string signKey = ViewBag.SignKey as string ?? "default";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 text-center p-4" style="background-color: var(--card-bg); color: var(--text-color);">
+                <h2 class="fw-bold mb-4">
+                    <i class="fa-solid fa-star text-warning"></i> Află ce spun astrele
+                </h2>
+
+                <form asp-action="GetHoroscope" method="post" class="mb-4">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Introdu data nașterii:</label>
+                        <input type="date" name="birthDate" class="form-control w-50 mx-auto" style="background-color: var(--input-bg); color: var(--text-color); border-color: var(--border-color);" value="@Model.BirthDate.ToString("yyyy-MM-dd")" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary px-4 rounded-pill">
+                        <i class="fa-solid fa-crystal-ball"></i> Generează Horoscop
+                    </button>
+                </form>
+
+                @if (Model.HasData)
+                {
+                    <hr class="my-4" style="border-color: var(--border-color);" />
+
+                    <div class="animate__animated animate__fadeIn">
+                        <h3 class="text-info fw-bold text-uppercase">@Model.ZodiacSign</h3>
+
+                        <div class="display-1 my-3 text-warning">
+                            @switch (signKey.ToLower())
+                            {
+                                // FOC
+                                case "aries":
+                                    <i class="fa-solid fa-fire" title="Berbec"></i>
+                                    ; break;
+                                case "leo":
+
+                                    <i class="fa-solid fa-crown" title="Leu"></i>
+                                    ; break;
+                                case "sagittarius":
+
+                                    <i class="fa-solid fa-location-arrow" title="Săgetător"></i>
+                                    ; break;
+                                // PAMANT
+                                case "taurus":
+
+                                    <i class="fa-solid fa-bullseye" title="Taur"></i>
+                                    ; break;
+                                case "virgo":
+
+                                    <i class="fa-solid fa-leaf" title="Fecioară"></i>
+                                    ; break;
+                                case "capricorn":
+
+                                    <i class="fa-solid fa-mountain" title="Capricorn"></i>
+                                    ; break;
+                                // AER
+                                case "gemini":
+
+                                    <i class="fa-solid fa-user-group" title="Gemeni"></i>
+                                    ; break;
+                                case "libra":
+
+                                    <i class="fa-solid fa-scale-balanced" title="Balanță"></i>
+                                    ; break;
+                                case "aquarius":
+
+                                    <i class="fa-solid fa-wind" title="Vărsător"></i>
+                                    ; break;
+                                // APA
+                                case "cancer":
+
+                                    <i class="fa-solid fa-moon" title="Rac"></i>
+                                    ; break;
+                                case "scorpio":
+
+                                    <i class="fa-solid fa-bolt" title="Scorpion"></i>
+                                    ; break;
+                                case "pisces":
+
+                                    <i class="fa-solid fa-fish" title="Pești"></i>
+                                    ; break;
+                                // Default
+                                default:
+
+                                    <i class="fa-solid fa-star"></i>
+                                    ; break;
+                            }
+                        </div>
+
+                        <div class="mt-4 p-4 rounded shadow-sm" style="background-color: rgba(128, 128, 128, 0.1); border: 1px solid var(--border-color);">
+                            <h5 class="fw-bold">
+                                <i class="fa-regular fa-calendar"></i>
+                                Horoscopul de azi, @DateTime.Now.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("ro-RO"))
+                            </h5>
+
+                            <p class="lead fs-6 mt-3" style="font-weight: 500;">@Model.HoroscopeText</p>
+                            <small class="opacity-75">(Tradus automat cu Gemini AI)</small>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

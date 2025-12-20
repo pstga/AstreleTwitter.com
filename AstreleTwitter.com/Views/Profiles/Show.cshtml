@@ -14,26 +14,39 @@
 }
 
 <div class="container mt-5">
-    <div class="card border-0 shadow-lg mb-5">
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm mb-4" role="alert" style="border-left: 5px solid #dc3545;">
+            <div class="d-flex align-items-center">
+                <i class="fa-solid fa-triangle-exclamation fa-lg me-3"></i>
+                <div>
+                    <strong>Atenție!</strong> @TempData["ErrorMessage"]
+                </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    <div class="card border-0 shadow-lg mb-5 post-card">
         <div class="card-body p-5">
             <div class="row align-items-center">
                 <div class="col-md-3 text-center">
                     @if (!string.IsNullOrEmpty(Model.ProfilePicture))
                     {
-                        <img src="@Model.ProfilePicture" class="rounded-circle img-fluid border border-3 border-primary" style="width: 150px; height: 150px; object-fit: cover;" />
+                        <img src="@Model.ProfilePicture" class="rounded-circle img-fluid border border-3 border-primary shadow-sm" style="width: 150px; height: 150px; object-fit: cover;" />
                     }
                     else
                     {
-                        <div class="rounded-circle bg-secondary mx-auto d-flex align-items-center justify-content-center border border-3 border-secondary" style="width: 150px; height: 150px;">
+                        <div class="rounded-circle bg-secondary mx-auto d-flex align-items-center justify-content-center border border-3 border-secondary shadow-sm" style="width: 150px; height: 150px;">
                             <i class="fa-solid fa-user fa-4x text-white"></i>
                         </div>
                     }
                 </div>
 
                 <div class="col-md-9">
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
                         <div>
-                            <h2 class="fw-bold m-0">@Model.FirstName @Model.LastName</h2>
+                            <h2 class="fw-bold m-0" style="color: var(--text-color);">@Model.FirstName @Model.LastName</h2>
                             <p class="text-muted">@Model.UserName</p>
                         </div>
 
@@ -73,11 +86,11 @@
                         </div>
                     </div>
 
-                    <p class="mt-3 fs-5">@(Model.Bio ?? "Nicio descriere adăugată.")</p>
+                    <p class="mt-3 fs-5" style="color: var(--text-color);">@(Model.Bio ?? "Nicio descriere adăugată.")</p>
 
                     <div class="d-flex gap-4 mt-4 border-top border-secondary pt-3">
                         <div class="text-center">
-                            <span class="d-block h5 fw-bold m-0">@Model.Posts?.Count</span>
+                            <span class="d-block h5 fw-bold m-0" style="color: var(--text-color);">@Model.Posts?.Count</span>
                             <small class="text-muted">Postări</small>
                         </div>
 
@@ -102,13 +115,13 @@
 
             @if (isOwner && pendingRequests != null && pendingRequests.Any())
             {
-                <div class="mt-4 p-3 rounded requests-box shadow-sm">
-                    <h5 class="mb-3 fw-bold"><i class="fa-solid fa-bell"></i> Cereri noi</h5>
+                <div class="mt-4 p-3 rounded shadow-sm border" style="background-color: var(--card-bg); border-color: var(--border-color) !important;">
+                    <h5 class="mb-3 fw-bold" style="color: var(--text-color);"><i class="fa-solid fa-bell text-warning"></i> Cereri noi</h5>
                     <ul class="list-group list-group-flush">
                         @foreach (var req in pendingRequests)
                         {
                             <li class="list-group-item bg-transparent border-bottom d-flex justify-content-between align-items-center">
-                                <a asp-action="Show" asp-route-id="@req.FollowerId" class="text-decoration-none fw-bold" style="color: inherit;">
+                                <a asp-action="Show" asp-route-id="@req.FollowerId" class="text-decoration-none fw-bold" style="color: var(--text-color);">
                                     @req.Follower.FirstName @req.Follower.LastName
                                 </a>
                                 <div class="d-flex gap-2">
@@ -131,23 +144,23 @@
 
     @if (canViewFull)
     {
-        <h3 class="mb-4 border-bottom pb-2">Postările lui @Model.FirstName</h3>
+        <h3 class="mb-4 border-bottom pb-2 fw-bold" style="color: var(--text-color);">Postările lui @Model.FirstName</h3>
         @if (Model.Posts != null && Model.Posts.Any())
         {
             <div class="row">
                 @foreach (var post in Model.Posts.OrderByDescending(p => p.Date))
                 {
                     <div class="col-md-4 mb-4">
-                        <div class="card h-100 post-card">
+                        <div class="card h-100 post-card border-0 shadow-sm">
                             @if (!string.IsNullOrEmpty(post.MediaPath))
                             {
                                 <img src="@post.MediaPath" class="card-img-top" style="height: 200px; object-fit: cover;" />
                             }
                             <div class="card-body d-flex flex-column">
-                                <p class="card-text text-truncate">@post.Content</p>
+                                <p class="card-text text-truncate" style="color: var(--text-color);">@post.Content</p>
                                 <small class="text-muted mb-3">@post.Date.ToString("g")</small>
 
-                                <a asp-controller="Posts" asp-action="Show" asp-route-id="@post.Id" class="btn btn-dark btn-sm mt-auto w-100">
+                                <a asp-controller="Posts" asp-action="Show" asp-route-id="@post.Id" class="btn btn-outline-primary btn-sm mt-auto w-100">
                                     <i class="fa-solid fa-eye"></i> Vezi Postarea
                                 </a>
                             </div>
@@ -163,19 +176,19 @@
     }
     else
     {
-        <div class="text-center py-5 border rounded" style="background: rgba(255,255,255,0.05);">
-            <i class="fa-solid fa-lock fa-3x mb-3"></i>
-            <h3>Acest cont este privat</h3>
+        <div class="text-center py-5 border rounded" style="background: rgba(128, 128, 128, 0.1);">
+            <i class="fa-solid fa-lock fa-3x mb-3 text-muted"></i>
+            <h3 style="color: var(--text-color);">Acest cont este privat</h3>
         </div>
     }
 </div>
 
 <div class="modal fade" id="followersModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Urmăritori</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content post-card">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title fw-bold" style="color: var(--text-color);">Urmăritori</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
             </div>
             <div class="modal-body">
                 @if (followersList != null && followersList.Any())
@@ -183,8 +196,8 @@
                     <ul class="list-group list-group-flush">
                         @foreach (var item in followersList)
                         {
-                            <li class="list-group-item">
-                                <a asp-action="Show" asp-route-id="@item.FollowerId" class="d-flex align-items-center gap-2">
+                            <li class="list-group-item bg-transparent border-bottom">
+                                <a asp-action="Show" asp-route-id="@item.FollowerId" class="d-flex align-items-center gap-2 text-decoration-none">
                                     @if (!string.IsNullOrEmpty(item.Follower.ProfilePicture))
                                     {
                                         <img src="@item.Follower.ProfilePicture" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;" />
@@ -195,7 +208,7 @@
                                             <i class="fa-solid fa-user text-white"></i>
                                         </div>
                                     }
-                                    <span class="fw-bold">@item.Follower.FirstName @item.Follower.LastName</span>
+                                    <span class="fw-bold" style="color: var(--text-color);">@item.Follower.FirstName @item.Follower.LastName</span>
                                 </a>
                             </li>
                         }
@@ -203,7 +216,6 @@
                 }
                 else
                 {
-
                     <p class="text-muted text-center p-3">Nimeni încă.</p>
                 }
             </div>
@@ -213,10 +225,10 @@
 
 <div class="modal fade" id="followingModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Urmărește</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content post-card">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title fw-bold" style="color: var(--text-color);">Urmărește</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
             </div>
             <div class="modal-body">
                 @if (followingList != null && followingList.Any())
@@ -224,8 +236,8 @@
                     <ul class="list-group list-group-flush">
                         @foreach (var item in followingList)
                         {
-                            <li class="list-group-item">
-                                <a asp-action="Show" asp-route-id="@item.FollowingId" class="d-flex align-items-center gap-2">
+                            <li class="list-group-item bg-transparent border-bottom">
+                                <a asp-action="Show" asp-route-id="@item.FollowingId" class="d-flex align-items-center gap-2 text-decoration-none">
                                     @if (!string.IsNullOrEmpty(item.FollowingUser.ProfilePicture))
                                     {
                                         <img src="@item.FollowingUser.ProfilePicture" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;" />
@@ -236,7 +248,7 @@
                                             <i class="fa-solid fa-user text-white"></i>
                                         </div>
                                     }
-                                    <span class="fw-bold">@item.FollowingUser.FirstName @item.FollowingUser.LastName</span>
+                                    <span class="fw-bold" style="color: var(--text-color);">@item.FollowingUser.FirstName @item.FollowingUser.LastName</span>
                                 </a>
                             </li>
                         }
@@ -244,7 +256,6 @@
                 }
                 else
                 {
-
                     <p class="text-muted text-center p-3">Nimeni încă.</p>
                 }
             </div>

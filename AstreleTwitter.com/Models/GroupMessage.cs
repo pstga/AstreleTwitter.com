@@ -7,7 +7,7 @@ namespace AstreleTwitter.com.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Mesajul nu poate fi gol.")] 
         public string Content { get; set; }
 
         public string? MediaPath { get; set; }
@@ -20,7 +20,6 @@ namespace AstreleTwitter.com.Models
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
 
-        // Relatii pentru Like si Comentarii in grup
         public virtual ICollection<GroupLike> GroupLikes { get; set; } = new List<GroupLike>();
         public virtual ICollection<GroupComment> GroupComments { get; set; } = new List<GroupComment>();
     }

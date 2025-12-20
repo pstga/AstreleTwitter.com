@@ -12,12 +12,14 @@ namespace AstreleTwitter.com.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IWebHostEnvironment _env;
+        private readonly AstreleTwitter.com.Services.GeminiModerationService _moderationService; 
 
-        public ProfilesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment env)
+        public ProfilesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment env, AstreleTwitter.com.Services.GeminiModerationService moderationService)
         {
             _context = context;
             _userManager = userManager;
             _env = env;
+            _moderationService = moderationService;
         }
 
         [HttpGet]
@@ -47,7 +49,7 @@ namespace AstreleTwitter.com.Controllers
 
             if (userProfile == null) return NotFound();
 
-            var currentUser = _userManager.GetUserAsync(User).Result;
+            var currentUser = await _userManager.GetUserAsync(User);
             ViewBag.CurrentUser = currentUser?.Id;
             ViewBag.IsAdmin = User.IsInRole("Admin");
 
@@ -107,7 +109,7 @@ namespace AstreleTwitter.com.Controllers
         [Authorize]
         public async Task<IActionResult> Edit()
         {
-            var user = _userManager.GetUserAsync(User).Result;
+            var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Index", "Home");
 
             return View(user);
@@ -119,6 +121,15 @@ namespace AstreleTwitter.com.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Index", "Home");
+
+            var textToCheck = $"{model.FirstName} {model.LastName} {model.Bio}";
+            bool isSafe = await _moderationService.IsContentSafe(textToCheck);
+
+            if (!isSafe)
+            {
+                TempData["ErrorMessage"] = "Numele sau biografia conțin termeni nepotriviți. Te rugăm să reformulezi.";
+                return RedirectToAction("Show", new { id = user.Id });
+            }
 
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
@@ -179,6 +190,15 @@ namespace AstreleTwitter.com.Controllers
             var user = await _context.Users.FindAsync(model.Id);
             if (user == null) return NotFound();
 
+            var textToCheck = $"{model.FirstName} {model.LastName} {model.Bio}";
+            bool isSafe = await _moderationService.IsContentSafe(textToCheck);
+
+            if (!isSafe)
+            {
+                TempData["ErrorMessage"] = "Editarea respinsă: Numele sau biografia conțin termeni nepotriviți.";
+                return RedirectToAction("Show", new { id = user.Id });
+            }
+
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
             user.Bio = model.Bio;
@@ -191,7 +211,7 @@ namespace AstreleTwitter.com.Controllers
                 user.NormalizedUserName = model.Email.ToUpper();
             }
 
-            if (model.AccountPrivacy == false) 
+            if (model.AccountPrivacy == false)
             {
                 var pendingRequests = _context.Followings
                     .Where(f => f.FollowingId == user.Id && f.Status == "Pending")
@@ -238,11 +258,11 @@ namespace AstreleTwitter.com.Controllers
 
                 if (!passwordResult.Succeeded)
                 {
+
                 }
             }
 
             return RedirectToAction("Show", new { id = user.Id });
         }
     }
-
 }

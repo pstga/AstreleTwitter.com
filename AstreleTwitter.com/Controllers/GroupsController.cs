@@ -12,12 +12,14 @@ namespace AstreleTwitter.com.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IWebHostEnvironment _env;
+        private readonly AstreleTwitter.com.Services.GeminiModerationService _moderationService; 
 
-        public GroupsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment env)
+        public GroupsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment env, AstreleTwitter.com.Services.GeminiModerationService moderationService)
         {
             _context = context;
             _userManager = userManager;
             _env = env;
+            _moderationService = moderationService;
         }
 
         public async Task<IActionResult> Index()
@@ -248,6 +250,20 @@ namespace AstreleTwitter.com.Controllers
 
             if (!isAdmin && (ug == null || ug.Status != "Accepted")) return Forbid();
 
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                TempData["ErrorMessage"] = "Nu poți trimite un mesaj gol în grup.";
+                return RedirectToAction("Show", new { id = groupId });
+            }
+
+
+            bool isSafe = await _moderationService.IsContentSafe(content);
+            if (!isSafe)
+            {
+                TempData["ErrorMessage"] = "Mesajul tău conține limbaj nepotrivit. Te rugăm să păstrezi un ton civilizat.";
+                return RedirectToAction("Show", new { id = groupId });
+            }
+
             var msg = new GroupMessage
             {
                 Content = content,
@@ -313,6 +329,13 @@ namespace AstreleTwitter.com.Controllers
                 return Forbid();
             }
 
+            bool isSafe = await _moderationService.IsContentSafe(content);
+            if (!isSafe)
+            {
+                TempData["ErrorMessage"] = "Editarea nu a fost salvată. Mesajul conține limbaj nepotrivit.";
+                return RedirectToAction("Show", new { id = msg.GroupId });
+            }
+
             msg.Content = content;
             _context.Update(msg);
             await _context.SaveChangesAsync();
@@ -368,6 +391,19 @@ namespace AstreleTwitter.com.Controllers
             var msg = await _context.GroupMessages.FindAsync(messageId);
             if (msg == null) return NotFound();
 
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                TempData["ErrorMessage"] = "Comentariul nu poate fi gol.";
+                return RedirectToAction("Show", new { id = msg.GroupId });
+            }
+
+            bool isSafe = await _moderationService.IsContentSafe(content);
+            if (!isSafe)
+            {
+                TempData["ErrorMessage"] = "Comentariul conține limbaj nepotrivit.";
+                return RedirectToAction("Show", new { id = msg.GroupId });
+            }
+
             var comm = new GroupComment
             {
                 Content = content,
@@ -380,6 +416,7 @@ namespace AstreleTwitter.com.Controllers
 
             return RedirectToAction("Show", new { id = msg.GroupId });
         }
+
         [Authorize]
         public async Task<IActionResult> EditGroupComment(int id)
         {
@@ -423,6 +460,13 @@ namespace AstreleTwitter.com.Controllers
             if (!isAuthor && !isModerator && !isAdmin)
             {
                 return Forbid();
+            }
+
+            bool isSafe = await _moderationService.IsContentSafe(content);
+            if (!isSafe)
+            {
+                TempData["ErrorMessage"] = "Editarea nu a fost salvată. Limbaj nepotrivit.";
+                return RedirectToAction("Show", new { id = comm.GroupMessage.GroupId });
             }
 
             comm.Content = content;

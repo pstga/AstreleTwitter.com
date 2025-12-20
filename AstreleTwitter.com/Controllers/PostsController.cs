@@ -12,12 +12,14 @@ namespace AstreleTwitter.com.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IWebHostEnvironment _env;
+        private readonly AstreleTwitter.com.Services.GeminiModerationService _moderationService;
 
-        public PostsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment env)
+        public PostsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment env, AstreleTwitter.com.Services.GeminiModerationService moderationService)
         {
             _context = context;
             _userManager = userManager;
             _env = env;
+            _moderationService = moderationService;
         }
 
         private IActionResult RedirectToReferer()
@@ -33,15 +35,30 @@ namespace AstreleTwitter.com.Controllers
         [HttpPost]
         [Authorize]
         [RequestSizeLimit(100 * 1024 * 1024)]
-        public IActionResult Create(string content, IFormFile? mediaFile)
+        public async Task<IActionResult> Create(string content, IFormFile? mediaFile)
         {
             try
             {
-                var user = _userManager.GetUserAsync(User).Result;
+                if (string.IsNullOrWhiteSpace(content))
+                {
+                    TempData["ErrorMessage"] = "Nu poți publica o postare fără text.";
+                    return RedirectToAction("Index", "Home");
+                }
+
+                var user = await _userManager.GetUserAsync(User);
                 if (user == null) return RedirectToAction("Index", "Home");
 
                 if (!string.IsNullOrWhiteSpace(content))
                 {
+                    // --- INTEGRARE AI: Verificare Postare ---
+                    bool isSafe = await _moderationService.IsContentSafe(content);
+                    if (!isSafe)
+                    {
+                        TempData["ErrorMessage"] = "Conținutul tău conține termeni nepotriviți. Te rugăm să reformulezi.";
+                        return RedirectToAction("Index", "Home");
+                    }
+                    // ----------------------------------------
+
                     var post = new Post
                     {
                         Content = content,
@@ -61,14 +78,14 @@ namespace AstreleTwitter.com.Controllers
 
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
-                            mediaFile.CopyTo(stream);
+                            await mediaFile.CopyToAsync(stream);
                         }
 
                         post.MediaPath = "/uploads/" + fileName;
                     }
 
                     _context.Posts.Add(post);
-                    _context.SaveChanges();
+                    await _context.SaveChangesAsync();
                 }
                 return RedirectToReferer();
             }
@@ -99,10 +116,10 @@ namespace AstreleTwitter.com.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            var post = _context.Posts.Find(id);
-            var user = _userManager.GetUserAsync(User).Result;
+            var post = await _context.Posts.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
 
             if (post == null || user == null || (post.UserId != user.Id && !User.IsInRole("Admin")))
             {
@@ -113,17 +130,26 @@ namespace AstreleTwitter.com.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Edit(int id, string content)
+        public async Task<IActionResult> Edit(int id, string content)
         {
-            var post = _context.Posts.Find(id);
-            var user = _userManager.GetUserAsync(User).Result;
+            var post = await _context.Posts.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
 
             if (post != null && user != null)
             {
                 if (User.IsInRole("Admin") || post.UserId == user.Id)
                 {
+                    // --- INTEGRARE AI: Verificare Editare Postare ---
+                    bool isSafe = await _moderationService.IsContentSafe(content);
+                    if (!isSafe)
+                    {
+                        TempData["ErrorMessage"] = "Editarea nu a fost salvată. Conținutul conține termeni nepotriviți.";
+                        return RedirectToAction("Show", new { id = post.Id });
+                    }
+                    // ------------------------------------------------
+
                     post.Content = content;
-                    _context.SaveChanges();
+                    await _context.SaveChangesAsync();
                 }
             }
             return RedirectToAction("Index", "Home");
@@ -131,16 +157,16 @@ namespace AstreleTwitter.com.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var post = _context.Posts.Find(id);
-            var user = _userManager.GetUserAsync(User).Result;
+            var post = await _context.Posts.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
 
             if (post != null && user != null && (User.IsInRole("Admin") || post.UserId == user.Id))
             {
                 if (!string.IsNullOrEmpty(post.MediaPath))
                 {
-                    var filePath = Path.Combine(_env.WebRootPath, post.MediaPath.TrimStart('/'));
+                    var filePath = Path.Combine(_env.WebRootPath, post.MediaPath.TrimStart('/').TrimStart('\\')); // Fix path
                     if (System.IO.File.Exists(filePath))
                     {
                         System.IO.File.Delete(filePath);
@@ -148,7 +174,7 @@ namespace AstreleTwitter.com.Controllers
                 }
 
                 _context.Posts.Remove(post);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             var referer = Request.Headers["Referer"].ToString();
             if (referer.Contains("Posts/Show")) return RedirectToAction("Index", "Home");
@@ -158,10 +184,10 @@ namespace AstreleTwitter.com.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult DeleteMedia(int id)
+        public async Task<IActionResult> DeleteMedia(int id)
         {
-            var post = _context.Posts.Find(id);
-            var user = _userManager.GetUserAsync(User).Result;
+            var post = await _context.Posts.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
 
             if (post != null && user != null)
             {
@@ -178,7 +204,7 @@ namespace AstreleTwitter.com.Controllers
                         }
                     }
                     post.MediaPath = null;
-                    _context.SaveChanges();
+                    await _context.SaveChangesAsync();
                 }
             }
             return RedirectToReferer();
@@ -186,13 +212,27 @@ namespace AstreleTwitter.com.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult AddComment(int postId, string content)
+        public async Task<IActionResult> AddComment(int postId, string content)
         {
             try
             {
-                var user = _userManager.GetUserAsync(User).Result;
+                if (string.IsNullOrWhiteSpace(content))
+                {
+                    TempData["ErrorMessage"] = "Nu poți adăuga un comentariu gol.";
+                    return RedirectToReferer();
+                }
+                var user = await _userManager.GetUserAsync(User);
                 if (user != null && !string.IsNullOrWhiteSpace(content))
                 {
+                    // --- INTEGRARE AI: Verificare Comentariu ---
+                    bool isSafe = await _moderationService.IsContentSafe(content);
+                    if (!isSafe)
+                    {
+                        TempData["ErrorMessage"] = "Comentariul tău conține limbaj nepotrivit.";
+                        return RedirectToReferer();
+                    }
+                    // -------------------------------------------
+
                     var comment = new Comment
                     {
                         PostId = postId,
@@ -201,7 +241,7 @@ namespace AstreleTwitter.com.Controllers
                         Date = DateTime.Now
                     };
                     _context.Comments.Add(comment);
-                    _context.SaveChanges();
+                    await _context.SaveChangesAsync();
                 }
             }
             catch { }
@@ -210,10 +250,10 @@ namespace AstreleTwitter.com.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult EditComment(int id)
+        public async Task<IActionResult> EditComment(int id)
         {
-            var comm = _context.Comments.Find(id);
-            var user = _userManager.GetUserAsync(User).Result;
+            var comm = await _context.Comments.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
 
             if (comm == null || user == null || (comm.UserId != user.Id && !User.IsInRole("Admin")))
             {
@@ -224,35 +264,44 @@ namespace AstreleTwitter.com.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult EditComment(int id, string content)
+        public async Task<IActionResult> EditComment(int id, string content)
         {
-            var comm = _context.Comments.Find(id);
-            var user = _userManager.GetUserAsync(User).Result;
+            var comm = await _context.Comments.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
 
             if (comm != null && user != null)
             {
                 if (User.IsInRole("Admin") || comm.UserId == user.Id)
                 {
+                    // --- INTEGRARE AI: Verificare Editare Comentariu ---
+                    bool isSafe = await _moderationService.IsContentSafe(content);
+                    if (!isSafe)
+                    {
+                        TempData["ErrorMessage"] = "Editarea nu a fost salvată. Limbaj nepotrivit.";
+                        return RedirectToAction("Show", new { id = comm.PostId });
+                    }
+                    // ---------------------------------------------------
+
                     comm.Content = content;
-                    _context.SaveChanges();
+                    await _context.SaveChangesAsync();
                 }
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Show", new { id = comm?.PostId }); // Redirect to post
         }
 
         [HttpPost]
         [Authorize]
-        public IActionResult DeleteComment(int id)
+        public async Task<IActionResult> DeleteComment(int id)
         {
-            var comm = _context.Comments.Find(id);
-            var user = _userManager.GetUserAsync(User).Result;
+            var comm = await _context.Comments.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
 
             if (comm != null && user != null)
             {
                 if (comm.UserId == user.Id || User.IsInRole("Admin"))
                 {
                     _context.Comments.Remove(comm);
-                    _context.SaveChanges();
+                    await _context.SaveChangesAsync();
                 }
             }
             return RedirectToReferer();
@@ -265,8 +314,8 @@ namespace AstreleTwitter.com.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return Challenge();
 
-            var existingLike = _context.Likes
-                .FirstOrDefault(l => l.PostId == postId && l.UserId == user.Id);
+            var existingLike = await _context.Likes
+                .FirstOrDefaultAsync(l => l.PostId == postId && l.UserId == user.Id);
 
             if (existingLike != null)
             {

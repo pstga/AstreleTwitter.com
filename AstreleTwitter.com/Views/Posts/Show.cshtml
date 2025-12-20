@@ -8,6 +8,14 @@
     bool isLiked = ViewBag.CurrentUserId != null && Model.Likes.Any(l => l.UserId == (string)ViewBag.CurrentUserId);
 }
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+        <i class="fa-solid fa-triangle-exclamation"></i> @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -141,7 +149,7 @@
                         <form asp-action="AddComment" method="post" class="mt-4">
                             <input type="hidden" name="postId" value="@Model.Id" />
                             <div class="input-group">
-                                <input type="text" name="content" class="form-control" placeholder="Scrie un comentariu..." required />
+                                <input type="text" name="content" class="form-control" placeholder="Scrie un comentariu..." />
                                 <button type="submit" class="btn btn-primary">Trimite</button>
                             </div>
                         </form>
