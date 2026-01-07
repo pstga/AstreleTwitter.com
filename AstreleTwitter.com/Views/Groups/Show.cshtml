@@ -81,6 +81,7 @@
 
     <div class="row">
         <div class="col-md-4 mb-4">
+
             @if (isCreator)
             {
                 var pendingUsers = Model.UserGroups.Where(u => u.Status == "Pending").ToList();
@@ -90,11 +91,14 @@
                         <div class="card-header bg-warning text-dark fw-bold border-bottom-0">
                             <i class="fa-solid fa-bell"></i> Cereri (@pendingUsers.Count)
                         </div>
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush" style="background-color: var(--card-bg) !important;">
                             @foreach (var req in pendingUsers)
                             {
-                                <li class="list-group-item bg-transparent border-bottom d-flex justify-content-between align-items-center">
-                                    <span class="fw-bold" style="color: var(--text-color);">@req.User.FirstName @req.User.LastName</span>
+                                <li class="list-group-item border-bottom d-flex justify-content-between align-items-center"
+                                    style="background-color: var(--card-bg) !important; border-color: var(--border-color) !important;">
+
+                                    <span class="fw-bold" style="color: var(--text-color) !important;">@req.User.FirstName @req.User.LastName</span>
+
                                     <div>
                                         <form asp-action="AcceptMember" method="post" class="d-inline">
                                             <input type="hidden" name="groupId" value="@Model.Id" />
@@ -115,30 +119,34 @@
             }
 
             <div class="card shadow-sm border-0 post-card">
-                <div class="card-header fw-bold bg-transparent border-bottom" style="color: var(--text-color);">
+                <div class="card-header fw-bold border-bottom" style="background-color: transparent; color: var(--text-color); border-color: var(--border-color);">
                     <i class="fa-solid fa-users"></i> Membri
                 </div>
                 <div class="card-body p-0">
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush" style="background-color: var(--card-bg) !important;">
                         @foreach (var member in Model.UserGroups.Where(u => u.Status == "Accepted").Take(20))
                         {
-                            <li class="list-group-item bg-transparent border-bottom d-flex align-items-center gap-2">
+                            <li class="list-group-item d-flex align-items-center gap-2"
+                                style="background-color: var(--card-bg) !important; border-color: var(--border-color) !important;">
+
                                 @if (!string.IsNullOrEmpty(member.User.ProfilePicture))
                                 {
                                     <img src="@member.User.ProfilePicture" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;" />
                                 }
                                 else
                                 {
-                                    <div class="rounded-circle bg-secondary" style="width: 30px; height: 30px;"></div>
+                                    <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
+                                        <i class="fa-solid fa-user text-white" style="font-size: 0.8rem;"></i>
+                                    </div>
                                 }
 
-                                <a asp-controller="Profiles" asp-action="Show" asp-route-id="@member.UserId" class="member-link">
+                                <a asp-controller="Profiles" asp-action="Show" asp-route-id="@member.UserId" class="text-decoration-none fw-bold" style="color: var(--text-color) !important;">
                                     @member.User.FirstName @member.User.LastName
                                 </a>
 
                                 @if (member.UserId == Model.CreatorId)
                                 {
-                                    <span class="badge bg-info ms-auto">Creator</span>
+                                    <span class="badge bg-info ms-auto text-dark">Creator</span>
                                 }
                                 else if (isCreator)
                                 {
@@ -150,6 +158,13 @@
                                         </button>
                                     </form>
                                 }
+                            </li>
+                        }
+
+                        @if (!Model.UserGroups.Any(u => u.Status == "Accepted"))
+                        {
+                            <li class="list-group-item text-center text-muted" style="background-color: var(--card-bg) !important;">
+                                Nu există membri încă.
                             </li>
                         }
                     </ul>
@@ -197,7 +212,7 @@
                                                 <div class="rounded-circle bg-secondary" style="width: 40px; height: 40px;"></div>
                                             }
                                             <div>
-                                                <a asp-controller="Profiles" asp-action="Show" asp-route-id="@msg.UserId" class="member-link">
+                                                <a asp-controller="Profiles" asp-action="Show" asp-route-id="@msg.UserId" class="text-decoration-none fw-bold" style="color: var(--text-color);">
                                                     @msg.User?.FirstName @msg.User?.LastName
                                                 </a>
                                                 <br />
@@ -275,7 +290,7 @@
 
                                     <form asp-action="AddGroupComment" method="post" class="d-flex gap-2">
                                         <input type="hidden" name="messageId" value="@msg.Id" />
-                                        <input type="text" name="content" class="form-control form-control-sm rounded-pill" placeholder="Comentează..."/>
+                                        <input type="text" name="content" class="form-control form-control-sm rounded-pill" placeholder="Comentează..." />
                                         <button type="submit" class="btn btn-sm btn-outline-primary rounded-circle"><i class="fa-solid fa-paper-plane"></i></button>
                                     </form>
                                 </div>

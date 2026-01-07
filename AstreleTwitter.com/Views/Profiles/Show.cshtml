@@ -117,10 +117,10 @@
             {
                 <div class="mt-4 p-3 rounded shadow-sm border" style="background-color: var(--card-bg); border-color: var(--border-color) !important;">
                     <h5 class="mb-3 fw-bold" style="color: var(--text-color);"><i class="fa-solid fa-bell text-warning"></i> Cereri noi</h5>
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush" style="background-color: var(--card-bg);">
                         @foreach (var req in pendingRequests)
                         {
-                            <li class="list-group-item bg-transparent border-bottom d-flex justify-content-between align-items-center">
+                            <li class="list-group-item bg-transparent border-bottom d-flex justify-content-between align-items-center" style="border-color: var(--border-color) !important;">
                                 <a asp-action="Show" asp-route-id="@req.FollowerId" class="text-decoration-none fw-bold" style="color: var(--text-color);">
                                     @req.Follower.FirstName @req.Follower.LastName
                                 </a>
@@ -185,18 +185,18 @@
 
 <div class="modal fade" id="followersModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content post-card">
+        <div class="modal-content" style="background-color: var(--card-bg); color: var(--text-color);">
             <div class="modal-header border-bottom-0">
-                <h5 class="modal-title fw-bold" style="color: var(--text-color);">Urmăritori</h5>
+                <h5 class="modal-title fw-bold" style="color: var(--text-color) !important;">Urmăritori</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-0">
                 @if (followersList != null && followersList.Any())
                 {
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush" style="background-color: var(--card-bg) !important;">
                         @foreach (var item in followersList)
                         {
-                            <li class="list-group-item bg-transparent border-bottom">
+                            <li class="list-group-item border-bottom" style="background-color: var(--card-bg) !important; border-color: var(--border-color) !important;">
                                 <a asp-action="Show" asp-route-id="@item.FollowerId" class="d-flex align-items-center gap-2 text-decoration-none">
                                     @if (!string.IsNullOrEmpty(item.Follower.ProfilePicture))
                                     {
@@ -208,7 +208,7 @@
                                             <i class="fa-solid fa-user text-white"></i>
                                         </div>
                                     }
-                                    <span class="fw-bold" style="color: var(--text-color);">@item.Follower.FirstName @item.Follower.LastName</span>
+                                    <span class="fw-bold" style="color: var(--text-color) !important;">@item.Follower.FirstName @item.Follower.LastName</span>
                                 </a>
                             </li>
                         }
@@ -225,18 +225,18 @@
 
 <div class="modal fade" id="followingModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content post-card">
+        <div class="modal-content" style="background-color: var(--card-bg); color: var(--text-color);">
             <div class="modal-header border-bottom-0">
-                <h5 class="modal-title fw-bold" style="color: var(--text-color);">Urmărește</h5>
+                <h5 class="modal-title fw-bold" style="color: var(--text-color) !important;">Urmărește</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-0">
                 @if (followingList != null && followingList.Any())
                 {
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush" style="background-color: var(--card-bg) !important;">
                         @foreach (var item in followingList)
                         {
-                            <li class="list-group-item bg-transparent border-bottom">
+                            <li class="list-group-item border-bottom" style="background-color: var(--card-bg) !important; border-color: var(--border-color) !important;">
                                 <a asp-action="Show" asp-route-id="@item.FollowingId" class="d-flex align-items-center gap-2 text-decoration-none">
                                     @if (!string.IsNullOrEmpty(item.FollowingUser.ProfilePicture))
                                     {
@@ -248,7 +248,7 @@
                                             <i class="fa-solid fa-user text-white"></i>
                                         </div>
                                     }
-                                    <span class="fw-bold" style="color: var(--text-color);">@item.FollowingUser.FirstName @item.FollowingUser.LastName</span>
+                                    <span class="fw-bold" style="color: var(--text-color) !important;">@item.FollowingUser.FirstName @item.FollowingUser.LastName</span>
                                 </a>
                             </li>
                         }

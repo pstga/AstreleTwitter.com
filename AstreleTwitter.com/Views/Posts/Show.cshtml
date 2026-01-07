@@ -128,10 +128,14 @@
 
                                     @if (isAdmin || isCommOwner)
                                     {
-                                        <div class="d-flex gap-2 ms-2">
-                                            <a asp-action="EditComment" asp-route-id="@comm.Id" class="text-warning small"><i class="fa-solid fa-pen"></i></a>
-                                            <form asp-action="DeleteComment" asp-route-id="@comm.Id" method="post">
-                                                <button type="submit" class="btn btn-link p-0 text-danger small"><i class="fa-solid fa-trash"></i></button>
+                                        <div class="d-flex align-items-center gap-2 ms-2">
+                                            <a asp-action="EditComment" asp-route-id="@comm.Id" class="text-warning p-0 opacity-75" title="Editează">
+                                                <i class="fa-solid fa-pen"></i>
+                                            </a>
+                                            <form asp-action="DeleteComment" asp-route-id="@comm.Id" method="post" class="d-inline-flex">
+                                                <button type="submit" class="btn btn-link text-danger p-0 opacity-50" title="Șterge" onclick="return confirm('Ștergi comentariul?');">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
                                             </form>
                                         </div>
                                     }
@@ -187,7 +191,7 @@
                                         <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
                                             <i class="fa-solid fa-user text-white" style="font-size: 0.8rem;"></i>
                                         </div>
-                                    }C
+                                    }
                                     <span style="color: var(--text-color); font-weight: bold;">@like.User.FirstName @like.User.LastName</span>
                                 </a>
                             </li>

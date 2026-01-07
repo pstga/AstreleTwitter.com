@@ -10,7 +10,7 @@ namespace AstreleTwitter.com.Services
         // ---------------------------------------------------------
         // VERIFICA DACA AI CHEIA API CORECTA AICI!
         // ---------------------------------------------------------
-        private readonly string _apiKey = "AIzaSyC4b9GV5-j8_PFjHT7zRQVhKVXdLG6Qem8";
+        private readonly string _apiKey = "AIzaSyDD46ixO8wN5GLrIKa9w7Bn0Sz29KahYAg";
         private readonly HttpClient _httpClient;
 
         private const string MODEL_NAME = "gemini-flash-lite-latest";
