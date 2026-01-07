@@ -47,6 +47,19 @@ namespace AstreleTwitter.com.Controllers
                 var ids = new List<string>(myFollowingIds) { currentUser.Id };
                 postsQuery = postsQuery.Where(p => ids.Contains(p.UserId));
             }
+            else
+            {
+                if (currentUser != null)
+                {
+                    postsQuery = postsQuery.Where(p => p.User.AccountPrivacy == false 
+                                                    || myFollowingIds.Contains(p.UserId)
+                                                    || p.UserId == currentUser.Id);
+                }
+                else
+                {
+                    postsQuery = postsQuery.Where(p => p.User.AccountPrivacy == false);
+                }
+            }
 
             ViewBag.FeedType = feedType;
             return View(postsQuery.ToList());

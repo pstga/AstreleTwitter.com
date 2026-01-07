@@ -1,199 +1,195 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\",
+  "WorkspaceRootPath": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\posts\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\posts\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\posts\\editcomment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\posts\\editcomment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\profiles\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\profiles\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\groups\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\groups\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\models\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\models\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:models\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\services\\geminimoderationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:services\\geminimoderationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\services\\astrologyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:services\\astrologyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\astrology\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\astrology\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\controllers\\astrologycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\controllers\\astrologycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:controllers\\astrologycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\models\\astrologyviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\posts\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\posts\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\posts\\editcomment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\posts\\editcomment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\profiles\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\profiles\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\groups\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\groups\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\services\\geminimoderationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:services\\geminimoderationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\services\\astrologyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:services\\astrologyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\astrology\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\astrology\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\models\\astrologyviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:models\\astrologyviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\models\\groupmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\models\\groupmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:models\\groupmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\controllers\\profilescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\controllers\\profilescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:controllers\\profilescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\astreletwitter.com.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\astreletwitter.com.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:astreletwitter.com.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\profiles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\profiles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\profiles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\profiles\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\profiles\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\profiles\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\profiles\\adminedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\profiles\\adminedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\profiles\\adminedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\posts\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\posts\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\posts\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\groups\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\groups\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\groups\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\groups\\editmessage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\groups\\editmessage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\groups\\editmessage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\groups\\editgroupcomment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\groups\\editgroupcomment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\groups\\editgroupcomment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\groups\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\groups\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\groups\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\groups\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\groups\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\groups\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\models\\usergroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\models\\usergroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:models\\usergroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\models\\like.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\models\\like.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:models\\like.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\controllers\\followerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\controllers\\followerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:controllers\\followerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\desig\\Documents\\GitHub\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219154435_likescomgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\migrations\\20251219151115_grups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\migrations\\20251219151115_grups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:migrations\\20251219151115_grups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\desig\\Documents\\GitHub\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219150648_grupuri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\migrations\\20251219154647_likecomm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\migrations\\20251219154647_likecomm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:migrations\\20251219154647_likecomm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\migrations\\20251219152851_grup2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\migrations\\20251219152851_grup2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:migrations\\20251219152851_grup2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\migrations\\20251219143015_likes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\migrations\\20251219143015_likes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:migrations\\20251219143015_likes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|c:\\users\\flavius stefan\\desktop\\astreletwitter.com\\astreletwitter.com\\migrations\\20251219124418_updatedb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|d:\\facultate\\an2\\astreletwitter.com\\astreletwitter.com\\migrations\\20251219124418_updatedb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C83CCC6F-2AC9-43A9-A64D-E1FA772349CD}|AstreleTwitter.com.csproj|solutionrelative:migrations\\20251219124418_updatedb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -204,27 +200,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "GroupsController.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\GroupsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\GroupsController.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\GroupsController.cs",
-              "RelativeToolTip": "Controllers\\GroupsController.cs",
-              "ViewState": "AgIAAG8BAAAAAAAAAAAiwIoBAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T15:11:47.366Z"
+              "DocumentIndex": 3,
+              "Title": "Show.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\Show.cshtml",
+              "RelativeDocumentMoniker": "Views\\Posts\\Show.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\Show.cshtml",
+              "RelativeToolTip": "Views\\Posts\\Show.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAADwv9YAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T12:53:51.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAAYAAACrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-14T22:14:01.031Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
               "Title": "Post.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Post.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Post.cs",
               "RelativeDocumentMoniker": "Models\\Post.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Post.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Post.cs",
               "RelativeToolTip": "Models\\Post.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -232,114 +241,107 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAACrAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "GroupsController.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\GroupsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\GroupsController.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\GroupsController.cs",
+              "RelativeToolTip": "Controllers\\GroupsController.cs",
+              "ViewState": "AgIAAG8BAAAAAAAAAAAiwIoBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T15:11:47.366Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Data\\SeedData.cs",
+              "RelativeDocumentMoniker": "Models\\Data\\SeedData.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Data\\SeedData.cs",
+              "RelativeToolTip": "Models\\Data\\SeedData.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCgAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-07T02:05:10.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Show.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Show.cshtml",
+              "RelativeDocumentMoniker": "Views\\Groups\\Show.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Show.cshtml",
+              "RelativeToolTip": "Views\\Groups\\Show.cshtml",
+              "ViewState": "AgIAAA8BAAAAAAAAAAAiwB8BAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-14T22:14:01.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T15:16:03.875Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "GeminiModerationService.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Services\\GeminiModerationService.cs",
-              "RelativeDocumentMoniker": "Services\\GeminiModerationService.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Services\\GeminiModerationService.cs",
-              "RelativeToolTip": "Services\\GeminiModerationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAJAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-20T15:18:36.484Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-20T15:04:02.772Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "AstrologyController.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\AstrologyController.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\AstrologyController.cs",
               "RelativeDocumentMoniker": "Controllers\\AstrologyController.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\AstrologyController.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\AstrologyController.cs",
               "RelativeToolTip": "Controllers\\AstrologyController.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAADwvxwAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-20T16:12:04.817Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABkAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "GeminiModerationService.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Services\\GeminiModerationService.cs",
+              "RelativeDocumentMoniker": "Services\\GeminiModerationService.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Services\\GeminiModerationService.cs",
+              "RelativeToolTip": "Services\\GeminiModerationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-20T15:04:02.772Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-20T15:18:36.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Show.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Show.cshtml",
+              "RelativeDocumentMoniker": "Views\\Profiles\\Show.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Show.cshtml",
+              "RelativeToolTip": "Views\\Profiles\\Show.cshtml",
+              "ViewState": "AgIAAOAAAAAAAAAAAAAcwP0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T12:47:14.454Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Show.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Show.cshtml",
-              "RelativeDocumentMoniker": "Views\\Groups\\Show.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Show.cshtml",
-              "RelativeToolTip": "Views\\Groups\\Show.cshtml",
-              "ViewState": "AgIAAA8BAAAAAAAAAAAiwB8BAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-19T15:16:03.875Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Show.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Show.cshtml",
-              "RelativeDocumentMoniker": "Views\\Profiles\\Show.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Show.cshtml",
-              "RelativeToolTip": "Views\\Profiles\\Show.cshtml",
-              "ViewState": "AgIAAOAAAAAAAAAAAAAcwP0AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-19T12:47:14.454Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "EditComment.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\EditComment.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\EditComment.cshtml",
               "RelativeDocumentMoniker": "Views\\Posts\\EditComment.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\EditComment.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\EditComment.cshtml",
               "RelativeToolTip": "Views\\Posts\\EditComment.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-15T13:17:13.199Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Show.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\Show.cshtml",
-              "RelativeDocumentMoniker": "Views\\Posts\\Show.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\Show.cshtml",
-              "RelativeToolTip": "Views\\Posts\\Show.cshtml",
-              "ViewState": "AgIAALEAAAAAAAAAAADwv9YAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-19T12:53:51.947Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-15T13:17:13.199Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "PostsController.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\PostsController.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\PostsController.cs",
               "RelativeDocumentMoniker": "Controllers\\PostsController.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\PostsController.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\PostsController.cs",
               "RelativeToolTip": "Controllers\\PostsController.cs",
               "ViewState": "AgIAAMIAAAAAAAAAAAAiwNsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -349,9 +351,9 @@
               "$type": "Document",
               "DocumentIndex": 16,
               "Title": "Comment.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Comment.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Comment.cs",
               "RelativeDocumentMoniker": "Models\\Comment.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Comment.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Comment.cs",
               "RelativeToolTip": "Models\\Comment.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -359,24 +361,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SeedData.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Data\\SeedData.cs",
-              "RelativeDocumentMoniker": "Models\\Data\\SeedData.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Data\\SeedData.cs",
-              "RelativeToolTip": "Models\\Data\\SeedData.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAwwDIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T02:05:10.378Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 11,
               "Title": "AstrologyViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\AstrologyViewModel.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\AstrologyViewModel.cs",
               "RelativeDocumentMoniker": "Models\\AstrologyViewModel.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\AstrologyViewModel.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\AstrologyViewModel.cs",
               "RelativeToolTip": "Models\\AstrologyViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -384,11 +373,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "AstrologyService.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Services\\AstrologyService.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Services\\AstrologyService.cs",
               "RelativeDocumentMoniker": "Services\\AstrologyService.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Services\\AstrologyService.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Services\\AstrologyService.cs",
               "RelativeToolTip": "Services\\AstrologyService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -396,11 +385,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Astrology\\Index.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Astrology\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Astrology\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Astrology\\Index.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Astrology\\Index.cshtml",
               "RelativeToolTip": "Views\\Astrology\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -410,9 +399,9 @@
               "$type": "Document",
               "DocumentIndex": 18,
               "Title": "ProfilesController.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\ProfilesController.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\ProfilesController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProfilesController.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\ProfilesController.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\ProfilesController.cs",
               "RelativeToolTip": "Controllers\\ProfilesController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAA1wBMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -422,9 +411,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "GroupMessage.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\GroupMessage.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\GroupMessage.cs",
               "RelativeDocumentMoniker": "Models\\GroupMessage.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\GroupMessage.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\GroupMessage.cs",
               "RelativeToolTip": "Models\\GroupMessage.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -434,9 +423,9 @@
               "$type": "Document",
               "DocumentIndex": 19,
               "Title": "Register.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAiwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -446,9 +435,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAMcAAAAAAAAAAAAiwNsAAACCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -458,9 +447,9 @@
               "$type": "Document",
               "DocumentIndex": 20,
               "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -470,9 +459,9 @@
               "$type": "Document",
               "DocumentIndex": 22,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\appsettings.json",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\appsettings.json",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -482,9 +471,9 @@
               "$type": "Document",
               "DocumentIndex": 21,
               "Title": "AstreleTwitter.com.csproj",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj",
               "RelativeDocumentMoniker": "AstreleTwitter.com.csproj",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj",
               "RelativeToolTip": "AstreleTwitter.com.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -494,9 +483,9 @@
               "$type": "Document",
               "DocumentIndex": 26,
               "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\Edit.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\Posts\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\Edit.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Posts\\Edit.cshtml",
               "RelativeToolTip": "Views\\Posts\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -506,9 +495,9 @@
               "$type": "Document",
               "DocumentIndex": 27,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Index.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Groups\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Index.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Index.cshtml",
               "RelativeToolTip": "Views\\Groups\\Index.cshtml",
               "ViewState": "AgIAAAwAAAAAAAAAAAAwwDIAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -518,9 +507,9 @@
               "$type": "Document",
               "DocumentIndex": 28,
               "Title": "EditMessage.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\EditMessage.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\EditMessage.cshtml",
               "RelativeDocumentMoniker": "Views\\Groups\\EditMessage.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\EditMessage.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\EditMessage.cshtml",
               "RelativeToolTip": "Views\\Groups\\EditMessage.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -530,9 +519,9 @@
               "$type": "Document",
               "DocumentIndex": 25,
               "Title": "AdminEdit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\AdminEdit.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\AdminEdit.cshtml",
               "RelativeDocumentMoniker": "Views\\Profiles\\AdminEdit.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\AdminEdit.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\AdminEdit.cshtml",
               "RelativeToolTip": "Views\\Profiles\\AdminEdit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -542,9 +531,9 @@
               "$type": "Document",
               "DocumentIndex": 24,
               "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Edit.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\Profiles\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Edit.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Edit.cshtml",
               "RelativeToolTip": "Views\\Profiles\\Edit.cshtml",
               "ViewState": "AgIAABIAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -554,9 +543,9 @@
               "$type": "Document",
               "DocumentIndex": 23,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Index.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Profiles\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Index.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Profiles\\Index.cshtml",
               "RelativeToolTip": "Views\\Profiles\\Index.cshtml",
               "ViewState": "AgIAAAkAAAAAAAAAAADwvyoAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -566,9 +555,9 @@
               "$type": "Document",
               "DocumentIndex": 29,
               "Title": "EditGroupComment.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\EditGroupComment.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\EditGroupComment.cshtml",
               "RelativeDocumentMoniker": "Views\\Groups\\EditGroupComment.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\EditGroupComment.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\EditGroupComment.cshtml",
               "RelativeToolTip": "Views\\Groups\\EditGroupComment.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -578,9 +567,9 @@
               "$type": "Document",
               "DocumentIndex": 30,
               "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Edit.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\Groups\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Edit.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Edit.cshtml",
               "RelativeToolTip": "Views\\Groups\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -590,9 +579,9 @@
               "$type": "Document",
               "DocumentIndex": 31,
               "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Create.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\Groups\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Create.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Groups\\Create.cshtml",
               "RelativeToolTip": "Views\\Groups\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -602,9 +591,9 @@
               "$type": "Document",
               "DocumentIndex": 32,
               "Title": "UserGroup.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\UserGroup.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\UserGroup.cs",
               "RelativeDocumentMoniker": "Models\\UserGroup.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\UserGroup.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\UserGroup.cs",
               "RelativeToolTip": "Models\\UserGroup.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -614,9 +603,9 @@
               "$type": "Document",
               "DocumentIndex": 33,
               "Title": "Like.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Like.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Like.cs",
               "RelativeDocumentMoniker": "Models\\Like.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Like.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Models\\Like.cs",
               "RelativeToolTip": "Models\\Like.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -626,9 +615,9 @@
               "$type": "Document",
               "DocumentIndex": 34,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -638,9 +627,9 @@
               "$type": "Document",
               "DocumentIndex": 35,
               "Title": "FollowersController.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\FollowersController.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\FollowersController.cs",
               "RelativeDocumentMoniker": "Controllers\\FollowersController.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\FollowersController.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\FollowersController.cs",
               "RelativeToolTip": "Controllers\\FollowersController.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAwwAgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -650,9 +639,9 @@
               "$type": "Document",
               "DocumentIndex": 36,
               "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\AdminController.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Controllers\\AdminController.cs",
               "RelativeToolTip": "Controllers\\AdminController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -662,9 +651,9 @@
               "$type": "Document",
               "DocumentIndex": 37,
               "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\wwwroot\\css\\site.css",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\wwwroot\\css\\site.css",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\wwwroot\\css\\site.css",
               "RelativeToolTip": "wwwroot\\css\\site.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
@@ -672,11 +661,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 44,
               "Title": "20251219154647_likecomm.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219154647_likecomm.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219154647_likecomm.cs",
               "RelativeDocumentMoniker": "Migrations\\20251219154647_likecomm.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219154647_likecomm.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219154647_likecomm.cs",
               "RelativeToolTip": "Migrations\\20251219154647_likecomm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -687,20 +676,18 @@
               "DocumentIndex": 38,
               "Title": "20251219154435_likescomgroup.cs",
               "DocumentMoniker": "C:\\Users\\desig\\Documents\\GitHub\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219154435_likescomgroup.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\desig\\Documents\\GitHub\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219154435_likescomgroup.cs",
               "ToolTip": "C:\\Users\\desig\\Documents\\GitHub\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219154435_likescomgroup.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\desig\\Documents\\GitHub\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219154435_likescomgroup.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-19T15:44:35.34Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 45,
               "Title": "20251219152851_grup2.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219152851_grup2.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219152851_grup2.cs",
               "RelativeDocumentMoniker": "Migrations\\20251219152851_grup2.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219152851_grup2.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219152851_grup2.cs",
               "RelativeToolTip": "Migrations\\20251219152851_grup2.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -710,9 +697,9 @@
               "$type": "Document",
               "DocumentIndex": 39,
               "Title": "20251219151115_grups.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219151115_grups.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219151115_grups.cs",
               "RelativeDocumentMoniker": "Migrations\\20251219151115_grups.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219151115_grups.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219151115_grups.cs",
               "RelativeToolTip": "Migrations\\20251219151115_grups.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -723,9 +710,7 @@
               "DocumentIndex": 40,
               "Title": "20251219150648_grupuri.cs",
               "DocumentMoniker": "C:\\Users\\desig\\Documents\\GitHub\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219150648_grupuri.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\desig\\Documents\\GitHub\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219150648_grupuri.cs",
               "ToolTip": "C:\\Users\\desig\\Documents\\GitHub\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219150648_grupuri.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\desig\\Documents\\GitHub\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219150648_grupuri.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-19T15:06:49.056Z"
@@ -734,9 +719,9 @@
               "$type": "Document",
               "DocumentIndex": 41,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "ViewState": "AgIAABQAAAAAAAAAAAAwwDwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -744,11 +729,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 46,
               "Title": "20251219143015_likes.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219143015_likes.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219143015_likes.cs",
               "RelativeDocumentMoniker": "Migrations\\20251219143015_likes.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219143015_likes.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219143015_likes.cs",
               "RelativeToolTip": "Migrations\\20251219143015_likes.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -758,9 +743,9 @@
               "$type": "Document",
               "DocumentIndex": 42,
               "Title": "_LoginPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Shared\\_LoginPartial.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -768,11 +753,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 47,
               "Title": "20251219124418_updatedb.cs",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219124418_updatedb.cs",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219124418_updatedb.cs",
               "RelativeDocumentMoniker": "Migrations\\20251219124418_updatedb.cs",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219124418_updatedb.cs",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Migrations\\20251219124418_updatedb.cs",
               "RelativeToolTip": "Migrations\\20251219124418_updatedb.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -782,25 +767,13 @@
               "$type": "Document",
               "DocumentIndex": 43,
               "Title": "Users.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Admin\\Users.cshtml",
+              "DocumentMoniker": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Admin\\Users.cshtml",
               "RelativeDocumentMoniker": "Views\\Admin\\Users.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Admin\\Users.cshtml",
+              "ToolTip": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\Admin\\Users.cshtml",
               "RelativeToolTip": "Views\\Admin\\Users.cshtml",
               "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-15T13:16:43.227Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
-              "ToolTip": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "Views\\_ViewStart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-14T21:46:15.41Z"
             }
           ]
         }

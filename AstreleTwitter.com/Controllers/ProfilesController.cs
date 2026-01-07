@@ -25,7 +25,12 @@ namespace AstreleTwitter.com.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string searchString)
         {
+            var currentUser = await _userManager.GetUserAsync(User);
             var users = from u in _context.Users select u;
+            if (currentUser != null)
+            {
+                users = users.Where(u => u.Id != currentUser.Id);
+            }
 
             if (!string.IsNullOrEmpty(searchString))
             {
