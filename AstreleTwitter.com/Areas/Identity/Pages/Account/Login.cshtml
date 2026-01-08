@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="card-body p-4">
-                    <form id="account" method="post">
+                    <form id="account" method="post" asp-route-returnUrl="@Model.ReturnUrl">
                         <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
 
                         <div class="mb-3">

@@ -104,6 +104,8 @@ namespace AstreleTwitter.com.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            // Get returnUrl from query string if not provided as parameter
+            returnUrl ??= Request.Query["returnUrl"].ToString();
             returnUrl ??= Url.Content("~/");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
