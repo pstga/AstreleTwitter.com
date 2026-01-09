@@ -47,9 +47,9 @@
                             <textarea name="content" class="form-control" rows="3" placeholder="Scrie un mesaj..." ></textarea>
                         </div>
                         <div class="mb-3">
-                            <input type="file" name="mediaFile" class="form-control form-control-sm" accept="image/*" />
+                            <input type="file" name="mediaFile" class="form-control form-control-sm" accept="image/*,video/*" />
                         </div>
-                        <div class="d-grid">
+                        <div class="d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary">Lansează Postarea 🚀</button>
                         </div>
                     </form>
@@ -144,12 +144,26 @@
                         <p class="card-text fs-5 mt-2">@item.Content</p>
                         @if (!string.IsNullOrEmpty(item.MediaPath))
                         {
+                            var isVideo = item.MediaPath.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase)
+                                       || item.MediaPath.EndsWith(".webm", StringComparison.OrdinalIgnoreCase)
+                                       || item.MediaPath.EndsWith(".ogg", StringComparison.OrdinalIgnoreCase)
+                                       || item.MediaPath.EndsWith(".mov", StringComparison.OrdinalIgnoreCase);
                             <div class="mt-3 text-center position-relative d-inline-block">
-                                <img src="@item.MediaPath" class="img-fluid rounded shadow-sm" style="max-height: 500px;" />
+                                @if (isVideo)
+                                {
+                                    <video controls class="img-fluid rounded shadow-sm" style="max-height: 500px;">
+                                        <source src="@item.MediaPath" type="video/mp4" />
+                                        Browserul tău nu suportă redarea video.
+                                    </video>
+                                }
+                                else
+                                {
+                                    <img src="@item.MediaPath" class="img-fluid rounded shadow-sm" style="max-height: 500px;" />
+                                }
                                 @if (hasRights)
                                 {
                                     <form asp-controller="Posts" asp-action="DeleteMedia" asp-route-id="@item.Id" method="post" style="position: absolute; top: 10px; right: 10px;">
-                                        <button type="submit" class="btn btn-danger btn-sm shadow" onclick="return confirm('Ștergi doar poza?');">
+                                        <button type="submit" class="btn btn-danger btn-sm shadow" onclick="return confirm('Ștergi doar fișierul media?');">
                                             <i class="fa-solid fa-image"></i>
                                         </button>
                                     </form>

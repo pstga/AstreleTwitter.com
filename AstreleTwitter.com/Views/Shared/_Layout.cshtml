@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using AstreleTwitter.com.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -20,69 +25,91 @@
         <div class="planet planet-4"></div>
     </div>
 
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">✨ Astrele Twitter</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div class="app-wrapper">
+        <!-- Left Sidebar -->
+        <aside class="left-sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <a class="sidebar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="fa-solid fa-rocket"></i>
+                        <span class="brand-text">Astrele Twitter</span>
+                    </a>
+                </div>
 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <nav class="sidebar-nav">
+                    <a class="sidebar-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")" 
+                       asp-controller="Home" asp-action="Index">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Acasă</span>
+                    </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Profiles" asp-action="Index">
-                                <i class="fa-solid fa-users"></i> Găsește Persoane
-                            </a>
-                        </li>
+                    <a class="sidebar-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Groups" ? "active" : "")" 
+                       asp-controller="Groups" asp-action="Index">
+                        <i class="fa-solid fa-users-rectangle"></i>
+                        <span>Grupuri</span>
+                    </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Groups" asp-action="Index">
-                                <i class="fa-solid fa-users-rectangle"></i> Grupuri
-                            </a>
-                        </li>
+                    <a class="sidebar-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Astrology" ? "active" : "")" 
+                       asp-controller="Astrology" asp-action="Index">
+                        <i class="fa-solid fa-star"></i>
+                        <span>Astrologie</span>
+                    </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Astrology" asp-action="Index">
-                                <i class="fa-solid fa-star"></i> Astrologie
-                            </a>
-                        </li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="sidebar-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Admin" ? "active" : "")" 
+                           asp-controller="Admin" asp-action="Users">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Admin Panel</span>
+                        </a>
+                    }
 
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link fw-bold" asp-controller="Admin" asp-action="Users">
-                                    <i class="fa-solid fa-crown text-warning"></i> Admin Panel
-                                </a>
-                            </li>
-                        }
-                    </ul>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        var currentUser = await UserManager.GetUserAsync(User);
+                        <a class="sidebar-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Profiles" && ViewContext.RouteData.Values["Action"]?.ToString() == "Show" ? "active" : "")" 
+                           asp-controller="Profiles" asp-action="Show" asp-route-id="@currentUser?.Id">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Profilul Meu</span>
+                        </a>
+                    }
+                </nav>
 
-                    <div class="d-flex align-items-center gap-3">
-                        <button id="themeToggle" class="btn btn-sm btn-outline-light rounded-pill px-3">
-                            <span id="themeIcon">☀️ Zi</span>
-                        </button>
-
-                        <partial name="_LoginPartial" />
-                    </div>
+                <div class="sidebar-footer">
+                    <button id="themeToggle" class="sidebar-item" style="border: none; background: none; width: 100%; text-align: left;">
+                        <span id="themeIcon">☀️</span>
+                        <span>Schimbă Tema</span>
+                    </button>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
-        </nav>
-    </header>
+        </aside>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        <!-- Main Content Area -->
+        <div class="main-wrapper">
+            <!-- Top Search Bar -->
+            <header class="top-search-bar">
+                <div class="search-wrapper">
+                    <form asp-controller="Profiles" asp-action="Index" method="get" class="search-form">
+                        <div class="input-group">
+                            <span class="input-group-text" style="background-color: var(--input-bg); border-color: var(--border-color); color: var(--text-color);">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </span>
+                            <input type="text" name="searchString" class="form-control" 
+                                   placeholder="Caută utilizatori..." 
+                                   value="@Context.Request.Query["searchString"]"
+                                   style="background-color: var(--input-bg); border-color: var(--border-color); color: var(--text-color);" />
+                        </div>
+                    </form>
+                </div>
+            </header>
 
-    <footer class="border-top footer text-muted">
-        <div class="container text-center">
-            &copy; 2025 - AstreleTwitter.com
+            <!-- Page Content -->
+            <main class="main-content">
+                @RenderBody()
+            </main>
         </div>
-    </footer>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -95,23 +122,30 @@
 
         if (localStorage.getItem('theme') === 'light') {
             body.classList.add('light-theme');
-            themeIcon.innerText = '🌙 Noapte';
-            toggleBtn.classList.replace('btn-outline-light', 'btn-outline-dark');
+            if (themeIcon) themeIcon.innerText = '🌙';
         }
 
-        toggleBtn.addEventListener('click', () => {
-            body.classList.toggle('light-theme');
+        if (toggleBtn && themeIcon) {
+            toggleBtn.addEventListener('click', () => {
+                body.classList.toggle('light-theme');
 
-            if (body.classList.contains('light-theme')) {
-                localStorage.setItem('theme', 'light');
-                themeIcon.innerText = '🌙 Noapte';
-                toggleBtn.classList.replace('btn-outline-light', 'btn-outline-dark');
-            } else {
-                localStorage.setItem('theme', 'dark');
-                themeIcon.innerText = '☀️ Zi';
-                toggleBtn.classList.replace('btn-outline-dark', 'btn-outline-light');
+                if (body.classList.contains('light-theme')) {
+                    localStorage.setItem('theme', 'light');
+                    themeIcon.innerText = '🌙';
+                } else {
+                    localStorage.setItem('theme', 'dark');
+                    themeIcon.innerText = '☀️';
+                }
+            });
+        }
+
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.left-sidebar');
+            if (sidebar) {
+                sidebar.classList.toggle('mobile-open');
             }
-        });
+        }
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)

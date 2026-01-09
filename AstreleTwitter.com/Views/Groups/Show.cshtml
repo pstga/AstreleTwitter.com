@@ -184,7 +184,7 @@
                             <textarea name="content" class="form-control mb-2" rows="2" placeholder="Ce mai e nou?"></textarea>
 
                             <div class="d-flex justify-content-between align-items-center">
-                                <input type="file" name="mediaFile" class="form-control form-control-sm w-50" accept="image/*" />
+                                <input type="file" name="mediaFile" class="form-control form-control-sm w-50" accept="image/*,video/*" />
                                 <button type="submit" class="btn btn-primary btn-sm px-4 rounded-pill">Trimite</button>
                             </div>
                         </form>
@@ -239,7 +239,21 @@
 
                                     @if (!string.IsNullOrEmpty(msg.MediaPath))
                                     {
-                                        <img src="@msg.MediaPath" class="img-fluid rounded mb-3 shadow-sm" style="max-height: 400px; width: 100%; object-fit: cover;" />
+                                        var isVideo = msg.MediaPath.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase)
+                                                   || msg.MediaPath.EndsWith(".webm", StringComparison.OrdinalIgnoreCase)
+                                                   || msg.MediaPath.EndsWith(".ogg", StringComparison.OrdinalIgnoreCase)
+                                                   || msg.MediaPath.EndsWith(".mov", StringComparison.OrdinalIgnoreCase);
+                                        if (isVideo)
+                                        {
+                                            <video controls class="img-fluid rounded mb-3 shadow-sm" style="max-height: 400px; width: 100%; object-fit: cover;">
+                                                <source src="@msg.MediaPath" type="video/mp4" />
+                                                Browserul tău nu suportă redarea video.
+                                            </video>
+                                        }
+                                        else
+                                        {
+                                            <img src="@msg.MediaPath" class="img-fluid rounded mb-3 shadow-sm" style="max-height: 400px; width: 100%; object-fit: cover;" />
+                                        }
                                     }
                                 </div>
 

@@ -24,6 +24,7 @@ namespace AstreleTwitter.com.Controllers
         {
             var currentUser = _userManager.GetUserAsync(User).Result;
             ViewBag.CurrentUser = currentUser;
+            bool isAdmin = User.IsInRole("Admin");
 
             var myFollowingIds = new List<string>();
             if (currentUser != null)
@@ -49,15 +50,19 @@ namespace AstreleTwitter.com.Controllers
             }
             else
             {
-                if (currentUser != null)
+                // Admins pot vedea toate postările, indiferent de setările de confidențialitate
+                if (!isAdmin)
                 {
-                    postsQuery = postsQuery.Where(p => p.User.AccountPrivacy == false 
-                                                    || myFollowingIds.Contains(p.UserId)
-                                                    || p.UserId == currentUser.Id);
-                }
-                else
-                {
-                    postsQuery = postsQuery.Where(p => p.User.AccountPrivacy == false);
+                    if (currentUser != null)
+                    {
+                        postsQuery = postsQuery.Where(p => p.User.AccountPrivacy == false
+                                                        || myFollowingIds.Contains(p.UserId)
+                                                        || p.UserId == currentUser.Id);
+                    }
+                    else
+                    {
+                        postsQuery = postsQuery.Where(p => p.User.AccountPrivacy == false);
+                    }
                 }
             }
 

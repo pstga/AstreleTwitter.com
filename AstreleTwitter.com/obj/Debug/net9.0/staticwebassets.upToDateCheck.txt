@@ -2,6 +2,7 @@ wwwroot\favicon.jpg
 wwwroot\groups\2b4f5337-eb9a-4878-89fb-1032125e131f.png
 wwwroot\groups\429283fa-6368-4538-b250-1ececfa20a0f.jpg
 wwwroot\groups\a44a1323-d625-45b9-8530-33b2ff2326fe.jpg
+wwwroot\groups\c82c38fb-80d2-43c2-b97c-c81bad280729.png
 wwwroot\group_media\bf68614a-6647-46ef-b3ae-0719a992ac01.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css

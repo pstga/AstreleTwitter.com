@@ -154,7 +154,21 @@
                         <div class="card h-100 post-card border-0 shadow-sm">
                             @if (!string.IsNullOrEmpty(post.MediaPath))
                             {
-                                <img src="@post.MediaPath" class="card-img-top" style="height: 200px; object-fit: cover;" />
+                                var isVideo = post.MediaPath.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase)
+                                           || post.MediaPath.EndsWith(".webm", StringComparison.OrdinalIgnoreCase)
+                                           || post.MediaPath.EndsWith(".ogg", StringComparison.OrdinalIgnoreCase)
+                                           || post.MediaPath.EndsWith(".mov", StringComparison.OrdinalIgnoreCase);
+                                if (isVideo)
+                                {
+                                    <video muted loop class="card-img-top" style="height: 200px; object-fit: cover;">
+                                        <source src="@post.MediaPath" type="video/mp4" />
+                                        Browserul tău nu suportă redarea video.
+                                    </video>
+                                }
+                                else
+                                {
+                                    <img src="@post.MediaPath" class="card-img-top" style="height: 200px; object-fit: cover;" />
+                                }
                             }
                             <div class="card-body d-flex flex-column">
                                 <p class="card-text text-truncate" style="color: var(--text-color);">@post.Content</p>
