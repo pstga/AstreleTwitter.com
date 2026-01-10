@@ -3,6 +3,7 @@ wwwroot\groups\2b4f5337-eb9a-4878-89fb-1032125e131f.png
 wwwroot\groups\429283fa-6368-4538-b250-1ececfa20a0f.jpg
 wwwroot\groups\a44a1323-d625-45b9-8530-33b2ff2326fe.jpg
 wwwroot\groups\c82c38fb-80d2-43c2-b97c-c81bad280729.png
+wwwroot\group_media\5ebb1dc1-9c5e-4e41-b193-086d29fa6f49.jpg
 wwwroot\group_media\bf68614a-6647-46ef-b3ae-0719a992ac01.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -76,6 +77,7 @@ wwwroot\uploads\174d928f-5ec1-4220-8760-66a6bca509fa.png
 wwwroot\uploads\3e55d397-6c67-4925-b7aa-2c38f5d08181.png
 wwwroot\uploads\3facc7b1-951f-42db-bedd-289e409c6720.png
 wwwroot\uploads\6613e4f3-7c96-43f3-95d8-7dec9b8c2347.png
+wwwroot\uploads\9465b113-825b-4cf0-b330-ef518eb16b14.mov
 wwwroot\uploads\9cb612cf-1175-4291-9840-ed01dd104de5.png
 wwwroot\uploads\b8b802bc-05f2-42c3-98d8-4e48b9736b47.png
 wwwroot\uploads\f490ceed-d94c-4a97-90f1-cc4462b5de43.png
