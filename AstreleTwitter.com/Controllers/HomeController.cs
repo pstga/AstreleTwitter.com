@@ -50,7 +50,7 @@ namespace AstreleTwitter.com.Controllers
             }
             else
             {
-                // Admins pot vedea toate postările, indiferent de setările de confidențialitate
+                // imi trebuie verificarea ptc adminul trece prin check ul de cont privat 
                 if (!isAdmin)
                 {
                     if (currentUser != null)

@@ -44,7 +44,7 @@
 
                     <a class="sidebar-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Groups" ? "active" : "")" 
                        asp-controller="Groups" asp-action="Index">
-                        <i class="fa-solid fa-users-rectangle"></i>
+                        <i class="fa-solid fa-user-astronaut"></i>
                         <span>Grupuri</span>
                     </a>
 
@@ -58,7 +58,7 @@
                     {
                         <a class="sidebar-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Admin" ? "active" : "")" 
                            asp-controller="Admin" asp-action="Users">
-                            <i class="fa-solid fa-shield-halved"></i>
+                            <i class="fa-solid fa-globe"></i>
                             <span>Admin Panel</span>
                         </a>
                     }

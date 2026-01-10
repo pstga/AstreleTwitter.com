@@ -749,7 +749,6 @@ input.form-control, textarea.form-control {
 
 input[type="file"] {
     color: var(--text-color);
-    background-color: var(--card-bg) !important;
 }
 
 .light-theme input[type="file"] {

@@ -137,16 +137,15 @@ namespace AstreleTwitter.com.Controllers
 
             if (post != null && user != null)
             {
+                // verificarea ai 
                 if (User.IsInRole("Admin") || post.UserId == user.Id)
                 {
-                    // --- INTEGRARE AI: Verificare Editare Postare ---
                     bool isSafe = await _moderationService.IsContentSafe(content);
                     if (!isSafe)
                     {
                         TempData["ErrorMessage"] = "Editarea nu a fost salvată. Conținutul conține termeni nepotriviți.";
                         return RedirectToAction("Show", new { id = post.Id });
                     }
-                    // ------------------------------------------------
 
                     post.Content = content;
                     await _context.SaveChangesAsync();
@@ -224,14 +223,13 @@ namespace AstreleTwitter.com.Controllers
                 var user = await _userManager.GetUserAsync(User);
                 if (user != null && !string.IsNullOrWhiteSpace(content))
                 {
-                    // --- INTEGRARE AI: Verificare Comentariu ---
+                    // again verificare ai
                     bool isSafe = await _moderationService.IsContentSafe(content);
                     if (!isSafe)
                     {
                         TempData["ErrorMessage"] = "Comentariul tău conține limbaj nepotrivit.";
                         return RedirectToReferer();
                     }
-                    // -------------------------------------------
 
                     var comment = new Comment
                     {
@@ -273,20 +271,18 @@ namespace AstreleTwitter.com.Controllers
             {
                 if (User.IsInRole("Admin") || comm.UserId == user.Id)
                 {
-                    // --- INTEGRARE AI: Verificare Editare Comentariu ---
                     bool isSafe = await _moderationService.IsContentSafe(content);
                     if (!isSafe)
                     {
                         TempData["ErrorMessage"] = "Editarea nu a fost salvată. Limbaj nepotrivit.";
                         return RedirectToAction("Show", new { id = comm.PostId });
                     }
-                    // ---------------------------------------------------
 
                     comm.Content = content;
                     await _context.SaveChangesAsync();
                 }
             }
-            return RedirectToAction("Show", new { id = comm?.PostId }); // Redirect to post
+            return RedirectToAction("Show", new { id = comm?.PostId });
         }
 
         [HttpPost]
