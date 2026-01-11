@@ -4,6 +4,16 @@
     ViewData["Title"] = "Editează Profilul";
 }
 
+<style>
+    .form-error-text {
+        color: #ff5252 !important;
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important; 
+        font-weight: 600; 
+    }
+</style>
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -11,27 +21,61 @@
                 <div class="card-body p-5">
                     <h3 class="mb-4 fw-bold border-bottom pb-2">🛠️ Setări Profil</h3>
 
+                    @* *@
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div class="form-error-text text-center mb-4 fs-5">
+                            <i class="fa-solid fa-triangle-exclamation me-2"></i> @TempData["ErrorMessage"]
+                        </div>
+                    }
+
                     <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="Id" />
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Prenume</label>
-                                <input asp-for="FirstName" class="form-control" required />
+                                @if (TempData["FirstNameError"] != null)
+                                {
+                                    <div class="form-error-text small mb-1">
+                                        @TempData["FirstNameError"]
+                                    </div>
+                                }
+                                <input asp-for="FirstName" class="form-control" />
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Nume de Familie</label>
-                                <input asp-for="LastName" class="form-control" required />
+                                @if (TempData["LastNameError"] != null)
+                                {
+                                    <div class="form-error-text small mb-1">
+                                        @TempData["LastNameError"]
+                                    </div>
+                                }
+                                <input asp-for="LastName" class="form-control" />
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label fw-bold">Bio (Descriere)</label>
+                            @if (TempData["BioError"] != null)
+                            {
+                                <div class="form-error-text small mb-1">
+                                    @TempData["BioError"]
+                                </div>
+                            }
                             <textarea asp-for="Bio" class="form-control" rows="3" placeholder="Spune lumii cine ești..."></textarea>
                         </div>
 
                         <div class="mb-4">
                             <label class="form-label fw-bold">Poză de Profil</label>
+                            @if (TempData["ProfilePictureError"] != null)
+                            {
+                                <div class="form-error-text small mb-1">
+                                    @TempData["ProfilePictureError"]
+                                </div>
+                            }
                             <input type="file" name="profileImage" class="form-control" accept="image/*" />
+
                             @if (!string.IsNullOrEmpty(Model.ProfilePicture))
                             {
                                 <div class="mt-2">

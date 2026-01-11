@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using AstreleTwitter.com.Data;
 using AstreleTwitter.com.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Text.RegularExpressions;
 
 namespace AstreleTwitter.com.Controllers
 {
@@ -127,6 +128,50 @@ namespace AstreleTwitter.com.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Index", "Home");
 
+            bool hasError = false;
+
+            var namePattern = @"^[\p{L}\s]+$";
+
+            if (string.IsNullOrWhiteSpace(model.FirstName))
+            {
+                TempData["FirstNameError"] = "Prenumele este obligatoriu!";
+                hasError = true;
+            }
+            else if (!Regex.IsMatch(model.FirstName, namePattern))
+            {
+                TempData["FirstNameError"] = "Prenumele poate conține doar litere și spații!";
+                hasError = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(model.LastName))
+            {
+                TempData["LastNameError"] = "Numele de familie este obligatoriu!";
+                hasError = true;
+            }
+            else if (!Regex.IsMatch(model.LastName, namePattern))
+            {
+                TempData["LastNameError"] = "Numele poate conține doar litere și spații!";
+                hasError = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(model.Bio))
+            {
+                TempData["BioError"] = "Descrierea (Bio) este obligatorie!";
+                hasError = true;
+            }
+
+            if (string.IsNullOrEmpty(user.ProfilePicture) && (profileImage == null || profileImage.Length == 0))
+            {
+                TempData["ProfilePictureError"] = "Trebuie să încarci o poză de profil!";
+                hasError = true;
+            }
+
+            if (hasError)
+            {
+                model.ProfilePicture = user.ProfilePicture;
+                return View(model);
+            }
+
             var textToCheck = $"{model.FirstName} {model.LastName} {model.Bio}";
             bool isSafe = await _moderationService.IsContentSafe(textToCheck);
 
@@ -140,7 +185,7 @@ namespace AstreleTwitter.com.Controllers
             user.LastName = model.LastName;
             user.Bio = model.Bio;
 
-            if (model.AccountPrivacy == false)
+            if (model.AccountPrivacy == false && user.AccountPrivacy == true)
             {
                 var pendingRequests = _context.Followings
                     .Where(f => f.FollowingId == user.Id && f.Status == "Pending")

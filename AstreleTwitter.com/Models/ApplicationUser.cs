@@ -1,14 +1,18 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Hosting;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace AstreleTwitter.com.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        [Required(ErrorMessage = "Prenumele este obligatoriu")]
         public string FirstName { get; set; }
-        public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Numele de familie este obligatoriu")]
+        public string? LastName { get; set; }
         public string? Bio { get; set; }
         public string? ProfilePicture { get; set; }
         public bool AccountPrivacy { get; set; }

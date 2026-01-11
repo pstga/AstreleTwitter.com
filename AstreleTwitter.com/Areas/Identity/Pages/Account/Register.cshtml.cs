@@ -135,6 +135,10 @@ namespace AstreleTwitter.com.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
+                    // Assign newly registered users to the "User" role so you have three explicit types:
+                    // Visitor (not authenticated), Registered User (in role "User"), Administrator (in role "Admin")
+                    await _userManager.AddToRoleAsync(user, "User");
+
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));

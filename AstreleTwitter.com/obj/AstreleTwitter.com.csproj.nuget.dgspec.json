@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj": {}
+    "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj": {}
   },
   "projects": {
-    "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj": {
+    "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj",
+        "projectUniqueName": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj",
         "projectName": "AstreleTwitter.com",
-        "projectPath": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj",
-        "packagesPath": "C:\\Users\\40749\\.nuget\\packages\\",
-        "outputPath": "D:\\facultate\\an2\\AstreleTwitter.com\\AstreleTwitter.com\\obj\\",
+        "projectPath": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\AstreleTwitter.com.csproj",
+        "packagesPath": "C:\\Users\\Flavius Stefan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Flavius Stefan\\Desktop\\AstreleTwitter.com\\AstreleTwitter.com\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\40749\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Flavius Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

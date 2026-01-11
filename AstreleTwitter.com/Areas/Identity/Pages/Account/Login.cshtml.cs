@@ -108,6 +108,11 @@ namespace AstreleTwitter.com.Areas.Identity.Pages.Account
             returnUrl ??= Request.Query["returnUrl"].ToString();
             returnUrl ??= Url.Content("~/");
 
+            if (string.IsNullOrEmpty(returnUrl))
+            {
+                returnUrl = Url.Content("~/");
+            }
+
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             if (ModelState.IsValid)

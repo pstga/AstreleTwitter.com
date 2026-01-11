@@ -45,8 +45,7 @@ namespace AstreleTwitter.com.Controllers
 
             if (currentUser != null && feedType == "following")
             {
-                var ids = new List<string>(myFollowingIds) { currentUser.Id };
-                postsQuery = postsQuery.Where(p => ids.Contains(p.UserId));
+                postsQuery = postsQuery.Where(p => myFollowingIds.Contains(p.UserId));
             }
             else
             {
@@ -56,8 +55,8 @@ namespace AstreleTwitter.com.Controllers
                     if (currentUser != null)
                     {
                         postsQuery = postsQuery.Where(p => p.User.AccountPrivacy == false
-                                                        || myFollowingIds.Contains(p.UserId)
-                                                        || p.UserId == currentUser.Id);
+                                                    || myFollowingIds.Contains(p.UserId)
+                                                    || p.UserId == currentUser.Id);
                     }
                     else
                     {
