@@ -1,0 +1,70 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Înregistrare";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0" style="background-color: var(--card-bg); color: var(--text-color);">
+                <div class="card-header bg-transparent border-bottom-0 text-center pt-4">
+                    <h2 class="fw-bold">Creează un cont 🚀</h2>
+                    <p class="text-muted small">Alătură-te comunității Astrele Twitter.</p>
+                </div>
+
+                <div class="card-body p-4">
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.FirstName" class="form-label fw-bold">Prenume</label>
+                                <input asp-for="Input.FirstName" class="form-control" placeholder="Ion" />
+                                <span asp-validation-for="Input.FirstName" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.LastName" class="form-label fw-bold">Nume</label>
+                                <input asp-for="Input.LastName" class="form-control" placeholder="Popescu" />
+                                <span asp-validation-for="Input.LastName" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Email" class="form-label fw-bold">Email</label>
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" placeholder="nume@exemplu.com" />
+                            <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.Password" class="form-label fw-bold">Parolă</label>
+                                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" placeholder="••••••••" />
+                                <span asp-validation-for="Input.Password" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.ConfirmPassword" class="form-label fw-bold">Confirmă Parola</label>
+                                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" placeholder="••••••••" />
+                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button id="registerSubmit" type="submit" class="btn btn-primary btn-lg fw-bold">Înregistrează-te</button>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <p>
+                                Ai deja cont? <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl" class="text-decoration-none fw-bold">Autentifică-te</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

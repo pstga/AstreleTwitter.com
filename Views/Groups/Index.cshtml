@@ -1,0 +1,88 @@
+﻿@model IEnumerable<AstreleTwitter.com.Models.Group>
+
+@{
+    ViewData["Title"] = "Grupuri";
+    bool isAdmin = User.IsInRole("Admin");
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold"><i class="fa-solid fa-users-rectangle"></i> Grupuri</h2>
+        <a asp-action="Create" class="btn btn-primary rounded-pill px-4">
+            <i class="fa-solid fa-plus"></i> Creează Grup Nou
+        </a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-secondary text-center shadow-sm">
+            <h4>Nu există grupuri încă.</h4>
+            <p>Fii primul care creează o comunitate!</p>
+        </div>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 post-card position-relative">
+                        @if (isAdmin)
+                        {
+                            <div class="position-absolute top-0 end-0 m-2 dropdown">
+                                <button class="btn btn-dark btn-sm rounded-circle shadow border border-2 border-white" type="button" data-bs-toggle="dropdown" style="opacity: 0.9;">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow">
+                                    <li>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="dropdown-item">
+                                            <i class="fa-solid fa-pen text-info"></i> Editează
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <form asp-action="DeleteGroup" asp-route-id="@item.Id" method="post">
+                                            <button type="submit" class="dropdown-item text-danger" onclick="return confirm('ADMIN: Ștergi grupul definitiv?');">
+                                                <i class="fa-solid fa-trash"></i> Șterge
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrEmpty(item.GroupImage))
+                        {
+                            <img src="@item.GroupImage" class="card-img-top" style="height: 200px; object-fit: cover;" alt="@item.Title">
+                        }
+                        else
+                        {
+                            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <i class="fa-solid fa-users fa-4x text-white opacity-50"></i>
+                            </div>
+                        }
+
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-truncate">@item.Title</h5>
+                            <p class="card-text text-muted small mb-2">
+                                Creat de <strong>@(item.Creator?.FirstName ?? "Necunoscut")</strong> •
+                                @item.Date.ToString("d MMM yyyy")
+                            </p>
+                            <p class="card-text text-truncate" style="max-height: 50px; overflow: hidden;">
+                                @item.Description
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between align-items-center pb-3">
+                            <small class="text-muted">
+                                <i class="fa-solid fa-user-group"></i>
+                                @item.UserGroups.Count(u => u.Status == "Accepted") Membri
+                            </small>
+                            <a asp-action="Show" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info rounded-pill px-3">
+                                Vezi Grupul
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
