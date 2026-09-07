@@ -12,10 +12,11 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("913c425a-6d86-4759-b313-75e3d20b5ee5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("AstreleTwitter.com")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b7dd1381896a61bdeaadac6567b86dd0bb6bce8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad35b38f8cff0c57a38dac47dd4a31f3726f4ca1")]
 [assembly: System.Reflection.AssemblyProductAttribute("AstreleTwitter.com")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AstreleTwitter.com")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
